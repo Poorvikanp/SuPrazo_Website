@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 import { useLang } from "@/lib/LanguageContext";
 import { ArrowRight } from "lucide-react";
 
-const DIRECTOR_IMG = "/images/Director Image.png";
+import directorImg from "../../assets/images/Director Image.png";
+
+const DIRECTOR_IMG = directorImg;
 
 export default function DirectorStrip() {
   const { t } = useLang();

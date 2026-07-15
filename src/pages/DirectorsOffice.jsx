@@ -5,7 +5,9 @@ import { motion, useInView } from "framer-motion";
 import SectionHeading from "@/components/shared/SectionHeading";
 import { useLang } from "@/lib/LanguageContext";
 
-const DIRECTOR_PORTRAIT = "/images/Director Image.png";
+import directorPortrait from "../assets/images/Director Image.png";
+
+const DIRECTOR_PORTRAIT = directorPortrait;
 const DIRECTOR_OFFICE = "/images/directorimage2.png";
 
 export default function DirectorsOffice() {

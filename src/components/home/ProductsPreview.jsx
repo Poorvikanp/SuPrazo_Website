@@ -5,9 +5,13 @@ import { ArrowRight } from "lucide-react";
 import SectionHeading from "@/components/shared/SectionHeading";
 import { useLang } from "@/lib/LanguageContext";
 
-const CORPOOL_IMG = "/images/CorPool.png";
-const HIREME_IMG = "/images/hireme.jpg";
-const MOCKPREP_IMG = "/images/mockai.jpg";
+import hiremeImage from "../../assets/images/hireme.jpg";
+import mockprepImage from "../../assets/images/mockai.jpg";
+import corPoolImage from "../../assets/images/CorPool.png";
+
+const CORPOOL_IMG = corPoolImage;
+const HIREME_IMG = hiremeImage;
+const MOCKPREP_IMG = mockprepImage;
 
 export default function ProductsPreview() {
   const { t } = useLang();

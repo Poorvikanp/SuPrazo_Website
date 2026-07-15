@@ -7,10 +7,14 @@ import PremiumButton from "@/components/shared/PremiumButton";
 import CountUp from "@/components/shared/CountUp";
 import { useLang } from "@/lib/LanguageContext";
 
+import hiremeImage from "../assets/images/hireme.jpg";
+import mockprepImage from "../assets/images/mockai.jpg";
+import corPoolImage from "../assets/images/CorPool.png";
+
 const HERO_IMG = "/images/Gemini_Generated_Image_ls7qhuls7qhuls7q.png";
-const CORPOOL_IMG = "/images/CorPool.png";
-const INTERVIEW_IMG = "/images/hireme.jpg";
-const MOCKPREP_IMG = "/images/mockai.jpg";
+const CORPOOL_IMG = corPoolImage;
+const INTERVIEW_IMG = hiremeImage;
+const MOCKPREP_IMG = mockprepImage;
 
 export default function Products() {
   const { t } = useLang();
