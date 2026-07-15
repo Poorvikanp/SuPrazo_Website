@@ -1,0 +1,59 @@
+{
+  "name": "JobApplication",
+  "type": "object",
+  "properties": {
+    "full_name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "vertical": {
+      "type": "string",
+      "enum": [
+        "SuPrazo Technologies",
+        "SuPrathon",
+        "CorPool",
+        "General"
+      ]
+    },
+    "college": {
+      "type": "string"
+    },
+    "linkedin_url": {
+      "type": "string"
+    },
+    "resume_url": {
+      "type": "string"
+    },
+    "why_join": {
+      "type": "string"
+    },
+    "availability": {
+      "type": "string",
+      "enum": [
+        "Full-time",
+        "Part-time",
+        "Internship"
+      ]
+    },
+    "how_heard": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "full_name",
+    "email",
+    "role",
+    "vertical",
+    "why_join",
+    "availability"
+  ]
+}

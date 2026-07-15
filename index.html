@@ -1,0 +1,22 @@
+const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="https://media.db.com/images/public/user_6a508c5cfa94dcaa9a45a688/e7feaa6ba_SuPrazoNewBG.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SuPrazo Technologies — Building Technology. Empowering Communities.</title>
+    <meta name="description" content="SuPrazo Technologies is a multi-vertical enterprise focused on technology, products, innovation, community, and impact. Based in Nagpur, for the world." />
+    <meta property="og:title" content="SuPrazo Technologies" />
+    <meta property="og:description" content="A multi-vertical enterprise focused on technology, products, innovation, community, and impact." />
+    <meta property="og:image" content="https://media.db.com/images/public/user_6a508c5cfa94dcaa9a45a688/e7feaa6ba_SuPrazoNewBG.png" />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "name": "ContactSubmission",
+  "type": "object",
+  "properties": {
+    "full_name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string",
+      "enum": [
+        "General Enquiry",
+        "Product Demo Request \u2014 CorPool",
+        "Product Demo Request \u2014 Interview AI",
+        "Product Demo Request \u2014 MockPrep.ai",
+        "Partnership or Sponsorship",
+        "Careers",
+        "Foundation & CSR Collaboration",
+        "Media & Press",
+        "Investor Enquiry",
+        "Other"
+      ]
+    },
+    "company": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "how_heard": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "full_name",
+    "email",
+    "reason",
+    "message"
+  ]
+}
