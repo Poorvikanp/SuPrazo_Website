@@ -49,7 +49,7 @@ export default function ApplicationProcess() {
                       ref={isLast ? lastIconRef : null}
                       initial={{ scale: 0, opacity: 0 }}
                       whileInView={{ scale: 1, opacity: 1 }}
-                      viewport={{ once: true, margin: "-50px" }}
+                      viewport={{ once: false, margin: "-50px" }}
                       transition={{ duration: 0.5, delay: i * 0.1 }}
                       className="w-12 h-12 rounded-full bg-gold text-white flex items-center justify-center premium-shadow"
                     >
@@ -62,7 +62,7 @@ export default function ApplicationProcess() {
                     <motion.div
                       initial={{ opacity: 0, x: isLeft ? -30 : 30 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-50px" }}
+                      viewport={{ once: false, margin: "-50px" }}
                       transition={{ duration: 0.6, delay: i * 0.1 }}
                       className="bg-alabaster border border-gray-100 rounded-lg p-6 hover:premium-shadow transition-all duration-500 hover:-translate-y-1"
                     >

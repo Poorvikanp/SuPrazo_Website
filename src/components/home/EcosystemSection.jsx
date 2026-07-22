@@ -25,7 +25,7 @@ export default function EcosystemSection() {
         <SectionHeading label={t('ecoSection.label')} title={t('ecoSection.title')} description={t('ecoSection.desc')} />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {PILLARS.map((pillar, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.7, delay: i * 0.15 }}>
+            <motion.div key={i} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-60px" }} transition={{ duration: 0.7, delay: i * 0.15 }}>
               <Link to={pillar.link} className="group block bg-white rounded-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
                 <div className="overflow-hidden h-64"><img src={pillar.img} alt={pillar.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" /></div>
                 <div className="p-8">

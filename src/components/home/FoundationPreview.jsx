@@ -20,10 +20,10 @@ export default function FoundationPreview() {
     <section className="py-28 lg:py-40 bg-alabaster">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-                    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.8 }} className="order-2 lg:order-1">
+                    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8 }} className="order-2 lg:order-1">
             <div className="overflow-hidden rounded-lg"><img src={FOUNDATION_PREVIEW_IMG} alt="SuFalPra Foundation" className="w-full h-[500px] object-cover" loading="lazy" decoding="async" /></div>
           </motion.div>
-          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.2 }} className="order-1 lg:order-2">
+          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.2 }} className="order-1 lg:order-2">
             <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('foundationPreview.label')}</span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mt-4 leading-tight">{t('foundationPreview.title')}</h2>
             <div className="gold-line w-16 mt-6 mb-8" />

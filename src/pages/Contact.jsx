@@ -15,7 +15,7 @@ export default function Contact() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
-    full_name: "", email: "", phone: "", reason: "", company: "", message: "", how_heard: "",
+    full_name: "", email: "", phone: "", reason: "", company: "", message: "",
   });
 
   const REASONS = [
@@ -32,9 +32,7 @@ export default function Contact() {
   ];
 
   const CONTACTS = [
-    { icon: Mail, label: t('contact.general'), value: "hello@suprazo.com", href: "mailto:hello@suprazo.com" },
-    { icon: Mail, label: t('contact.partnerships'), value: "partnerships@suprazo.com", href: "mailto:partnerships@suprazo.com" },
-    { icon: Mail, label: t('contact.careers'), value: "careers@suprazo.com", href: "mailto:careers@suprazo.com" },
+    { icon: Mail, label: "Email", value: "info@suprazotech.com", href: "mailto:info@suprazotech.com" },
     { icon: MapPin, label: t('contact.location'), value: t('contact.locationValue'), href: null },
   ];
 
@@ -91,13 +89,13 @@ Thank you.`;
       window.open(whatsappUrl, "_blank", "noopener,noreferrer");
       setSubmitted(true);
       setSubmitting(false);
-      setForm({ full_name: "", email: "", phone: "", reason: "", company: "", message: "", how_heard: "" });
+      setForm({ full_name: "", email: "", phone: "", reason: "", company: "", message: "" });
     }, 800);
   };
 
-  return (
-    <div>
-      {/* Hero */}
+   return (
+     <div data-aos="fade-up">
+       {/* Hero */}
       <section className="relative bg-alabaster py-32 lg:py-40">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <img src={SUPRAZO_ART} alt="SUPRAZO" className="w-full max-w-5xl mx-auto opacity-20" loading="lazy" decoding="async" />
@@ -117,7 +115,7 @@ Thank you.`;
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24">
             {/* Contact Info */}
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}               viewport={{ once: false }} transition={{ duration: 0.8 }}>
               <h3 className="font-display text-2xl font-semibold text-navy mb-6">{t('contact.directContact')}</h3>
               <div className="gold-line w-12 mb-8" />
               <div className="flex flex-col gap-6">
@@ -137,13 +135,13 @@ Thank you.`;
             </motion.div>
 
             {/* Form */}
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className="lg:col-span-2">
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}               viewport={{ once: false }} transition={{ duration: 0.8, delay: 0.2 }} className="lg:col-span-2">
               {submitted ? (
                 <div className="text-center py-20">
                   <CheckCircle size={48} className="text-gold mx-auto mb-6" />
                   <h3 className="font-display text-2xl font-semibold text-navy mb-4">{t('contact.sent')}</h3>
                   <p className="text-navy/60">{t('contact.thanks')}</p>
-                  <button onClick={() => { setSubmitted(false); setForm({ full_name: "", email: "", phone: "", reason: "", company: "", message: "", how_heard: "" }); }} className="mt-6 text-gold text-sm font-semibold uppercase tracking-wide hover:text-gold/80 transition-colors">{t('contact.sendAnother')}</button>
+                  <button onClick={() => { setSubmitted(false); setForm({ full_name: "", email: "", phone: "", reason: "", company: "", message: "" }); }} className="mt-6 text-gold text-sm font-semibold uppercase tracking-wide hover:text-gold/80 transition-colors">{t('contact.sendAnother')}</button>
                 </div>
               ) : (
                 <>
@@ -169,7 +167,6 @@ Thank you.`;
                       <label className="text-xs font-semibold text-navy/70 tracking-wide uppercase block mb-2">{`${t('contact.message')} *`}</label>
                       <textarea value={form.message} onChange={e => handleChange("message", e.target.value)} rows={5} className="w-full border border-gray-200 rounded-lg p-4 text-sm text-navy outline-none focus:border-gold transition-colors resize-none" placeholder={t('contact.messagePlaceholder')} />
                     </div>
-                    <FormField label={t('contact.howHeard')} value={form.how_heard} onChange={v => handleChange("how_heard", v)} />
                     <button type="submit" disabled={submitting} className="group inline-flex items-center gap-2 bg-gold text-white px-8 py-4 text-sm font-semibold tracking-wide uppercase hover:bg-gold/90 hover:-translate-y-0.5 transition-all duration-400 rounded premium-shadow disabled:opacity-50 disabled:hover:translate-y-0">{submitting ? t('contact.sending') : t('contact.send')} <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" /></button>
                   </form>
                 </>
@@ -209,7 +206,7 @@ Thank you.`;
                 ],
               },
             ].map((group, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }} className="bg-white rounded-lg p-8 border border-gray-100">
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}               viewport={{ once: false }} transition={{ duration: 0.6, delay: i * 0.1 }} className="bg-white rounded-lg p-8 border border-gray-100">
                 <h4 className="text-lg font-semibold text-navy mb-6">{group.title}</h4>
                 <div className="flex flex-col gap-3">
                   {group.links.map((link) => (

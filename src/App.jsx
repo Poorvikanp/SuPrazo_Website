@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
@@ -7,6 +8,8 @@ import { AuthProvider } from '@/lib/AuthContext';
 import { LanguageProvider } from '@/lib/LanguageContext';
 import ScrollToTop from './components/ScrollToTop';
 import PageLayout from '@/components/shared/PageLayout';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 // Page imports
 import Home from '@/pages/Home';
@@ -21,6 +24,16 @@ import Contact from '@/pages/Contact';
 import ProductEnquiry from '@/pages/ProductEnquiry';
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      once: false,
+      duration: 800,
+      easing: 'ease-in-out',
+      offset: 100,
+      mirror: true,
+    });
+  }, []);
+
   return (
     <AuthProvider>
       <LanguageProvider>

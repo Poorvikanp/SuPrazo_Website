@@ -9,7 +9,7 @@ export default function ContactTeaser() {
   return (
     <section className="py-28 lg:py-40 bg-alabaster">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 text-center">
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.8 }}>
+         <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8 }}>
           <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('contactTeaser.label')}</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mt-4 leading-tight">{t('contactTeaser.title')}</h2>
           <div className="gold-line w-16 mx-auto mt-6 mb-8" />

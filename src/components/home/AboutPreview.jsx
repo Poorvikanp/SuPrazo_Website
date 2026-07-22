@@ -11,22 +11,20 @@ const ABOUT_IMG = "/images/team-campus.png";
 export default function AboutPreview() {
   const { t } = useLang();
   const STATS = [
-    { value: 35, suffix: "+", label: t('aboutPreview.stat1') },
+    { value: 50, suffix: "+", label: t('aboutPreview.stat1') },
     { value: 3, suffix: "", label: t('aboutPreview.stat2') },
-    { value: 1, suffix: "", label: t('aboutPreview.stat3') },
-    { value: 4, suffix: " yrs+", label: t('aboutPreview.stat4') },
   ];
 
   return (
     <section className="py-28 lg:py-40 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.8 }}>
+          <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8 }}>
             <div className="overflow-hidden rounded-lg">
               <img src={ABOUT_IMG} alt="SuPrazo Technologies" className="w-full h-[520px] md:h-[560px] object-cover rounded-lg" loading="lazy" decoding="async" />
             </div>
           </motion.div>
-          <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.2 }}>
+          <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.2 }}>
             <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('aboutPreview.label')}</span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mt-4 leading-tight">{t('aboutPreview.title')}</h2>
             <div className="gold-line w-16 mt-6 mb-8" />

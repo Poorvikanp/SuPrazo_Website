@@ -131,7 +131,7 @@ Thank you.`;
   }
 
   return (
-    <div className="pt-20 pb-28">
+    <div className="pt-20 pb-28" data-aos="fade-up">
       <div className="max-w-[800px] mx-auto px-6 lg:px-16 py-16">
         <Link to="/careers" className="inline-flex items-center gap-2 text-navy/50 text-sm mb-8 hover:text-gold transition-colors"><ArrowLeft size={16} /> {t('apply.back')}</Link>
         <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase block mb-4">{t('apply.label')}</span>

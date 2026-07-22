@@ -27,7 +27,7 @@ export default function Careers() {
   ];
 
   return (
-    <div>
+    <div data-aos="fade-up">
       {/* Hero */}
       <section className="relative h-[60vh] min-h-[400px]">
         <img src={TEAM_IMG} alt={t('careers.heroTitle')} className="absolute inset-0 w-full h-full object-cover" fetchPriority="high" />
@@ -48,7 +48,7 @@ export default function Careers() {
           <SectionHeading label={t('careers.whyLabel')} title={t('careers.whyTitle')} />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {WHY.map((item, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.15 }} className="border border-gray-100 rounded-lg p-10 hover:shadow-lg transition-all duration-500">
+              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}               viewport={{ once: false }} transition={{ duration: 0.6, delay: i * 0.15 }} className="border border-gray-100 rounded-lg p-10 hover:shadow-lg transition-all duration-500">
                 <div className="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mb-6"><item.icon size={24} className="text-gold" /></div>
                 <h4 className="text-lg font-semibold text-navy mb-3">{item.title}</h4>
                 <p className="text-navy/50 text-sm leading-relaxed">{item.desc}</p>
@@ -67,7 +67,7 @@ export default function Careers() {
           <SectionHeading label={t('careers.rolesLabel')} title={t('careers.rolesTitle')} />
           <div className="flex flex-col gap-4 max-w-4xl mx-auto">
             {ROLES.map((role, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-white rounded-lg border border-gray-100 p-6 lg:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-4 hover:shadow-md transition-all duration-300">
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}               viewport={{ once: false }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-white rounded-lg border border-gray-100 p-6 lg:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-4 hover:shadow-md transition-all duration-300">
                 <div>
                   <h4 className="text-lg font-semibold text-navy">{role.title}</h4>
                   <div className="flex flex-wrap gap-4 mt-2">

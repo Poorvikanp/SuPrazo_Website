@@ -4,10 +4,13 @@ import { useInView } from "framer-motion";
 export default function CountUp({ end, prefix = "", suffix = "", duration = 2000 }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
+  const inView = useInView(ref, { once: false, margin: "-50px" });
 
   useEffect(() => {
-    if (!inView) return;
+    if (!inView) {
+      setCount(0);
+      return;
+    }
     let start = 0;
     const step = Math.max(1, Math.floor(end / (duration / 16)));
     const timer = setInterval(() => {

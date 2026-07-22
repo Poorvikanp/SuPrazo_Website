@@ -8,13 +8,11 @@ import PremiumButton from "@/components/shared/PremiumButton";
 import hero1 from "../../assets/images/hero1.png";
 import hero2 from "../../assets/images/hero2.png";
 import hero3 from "../../assets/images/hero3.png";
-import weBuildArt from "../../assets/images/webuild.png";
 
 const HERO_SLIDES = [
   { src: hero1, alt: "SuPrazo Technologies campus", fit: "object-cover" },
   { src: hero2, alt: "SuPrazo enterprise campus", fit: "object-cover" },
   { src: hero3, alt: "SuPrazo innovation community", fit: "object-cover" },
-  { src: weBuildArt, alt: "WE BUILD typography artwork", fit: "object-contain bg-white" },
 ];
 
 export default function HeroSection() {

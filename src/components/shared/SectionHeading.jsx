@@ -6,7 +6,7 @@ export default function SectionHeading({ label, title, description, align = "cen
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: false, margin: "-80px" }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={`mb-16 ${align === "center" ? "text-center" : "text-left"}`}
     >

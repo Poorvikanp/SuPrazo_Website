@@ -14,15 +14,15 @@ export default function Home() {
   return (
     <div>
       <HeroSection />
-      <AboutPreview />
-      <EcosystemSection />
-      <TypographyArt />
-      <ProductsPreview />
-      <DirectorStrip />
-      <CommunityPreview />
-      <FoundationPreview />
-      <CareersTeaser />
-      <ContactTeaser />
+      <AboutPreview data-aos="fade-up" />
+      <EcosystemSection data-aos="fade-up" />
+      <TypographyArt data-aos="zoom-in" />
+      <ProductsPreview data-aos="fade-up" />
+      <DirectorStrip data-aos="fade-up" />
+      <CommunityPreview data-aos="fade-up" />
+      <FoundationPreview data-aos="fade-up" />
+      <CareersTeaser data-aos="fade-up" />
+      <ContactTeaser data-aos="fade-up" />
     </div>
   );
 }
