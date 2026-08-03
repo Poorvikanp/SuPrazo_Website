@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider } from '@/lib/AuthContext';
 import { LanguageProvider } from '@/lib/LanguageContext';
@@ -10,6 +10,14 @@ import ScrollToTop from './components/ScrollToTop';
 import PageLayout from '@/components/shared/PageLayout';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+
+function AOSRefresh() {
+  const location = useLocation();
+  useEffect(() => {
+    AOS.refresh();
+  }, [location.pathname]);
+  return null;
+}
 
 // Page imports
 import Home from '@/pages/Home';
@@ -40,6 +48,7 @@ function App() {
         <QueryClientProvider client={queryClientInstance}>
           <Router>
             <ScrollToTop />
+            <AOSRefresh />
             <Routes>
               <Route element={<PageLayout />}>
                 <Route path="/" element={<Home />} />

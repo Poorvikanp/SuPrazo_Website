@@ -5,8 +5,9 @@ import { motion } from "framer-motion";
 import { Target, Eye } from "lucide-react";
 import { useLang } from "@/lib/LanguageContext";
 
-const TEAM_IMG = "/images/team-campus.png";
+const TEAM_IMG = "/images/Suprazo_Team discussing.png";
 const HERO_IMG = "/images/campus-pool.png";
+const HERO_VIDEO = "/videos/suprazo_technology.mp4";
 
 export default function About() {
   const { t } = useLang();
@@ -14,20 +15,12 @@ export default function About() {
   return (
     <div data-aos="fade-up">
       {/* Hero Banner */}
-      <section className="relative h-[60vh] min-h-[400px]">
-        <img src={HERO_IMG} alt={t('about.heroTitle')} className="absolute inset-0 w-full h-full object-cover" fetchPriority="high" />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/30" />
-        <div className="relative z-10 h-full max-w-[1400px] mx-auto px-6 lg:px-16 flex items-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('about.heroLabel')}</span>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy mt-4 leading-tight">{t('about.heroTitle')}</h1>
-            <div className="gold-line w-20 mt-6" />
-          </motion.div>
-        </div>
+      <section className="relative h-screen min-h-[400px] bg-black">
+        <video src={HERO_VIDEO} autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-contain" />
       </section>
 
       {/* Company Overview */}
-      <section className="py-28 lg:py-40 bg-white">
+      <section className="py-10 lg:py-12 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.8 }}>
@@ -46,7 +39,7 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-28 lg:py-40 bg-white">
+      <section className="py-10 lg:py-12 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false }} transition={{ duration: 0.7 }} className="border border-gray-100 rounded-lg p-10 lg:p-14">

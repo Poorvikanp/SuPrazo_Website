@@ -11,7 +11,7 @@ const OFFICE_IMG = "/images/meeting-room.png";
 export default function CareersTeaser() {
   const { t } = useLang();
   return (
-    <section className="py-28 lg:py-40 bg-white">
+    <section className="py-10 lg:py-12 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
         <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8 }} className="grid grid-cols-1 md:grid-cols-2 gap-2 rounded-lg overflow-hidden">
           <div className="relative">

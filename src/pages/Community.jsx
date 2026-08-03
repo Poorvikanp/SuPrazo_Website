@@ -4,20 +4,15 @@ import React from "react";
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/shared/SectionHeading";
 import CountUp from "@/components/shared/CountUp";
-import { Trophy, Users, Globe, Target, Building, Landmark, Handshake } from "lucide-react";
+import { Target, Building, Landmark, Handshake } from "lucide-react";
 import { useLang } from "@/lib/LanguageContext";
 
 const TEAM_IMG = "/images/community-hackathon.png";
+const SUPRATHON_HACK_VIDEO = "/videos/Suprathon_Hack.mp4";
+const SUPRATHON_H_IMG = "/images/Suprathon_h.png";
 
 export default function Community() {
   const { t } = useLang();
-
-  const STATS = [
-    { icon: Trophy, value: 1, suffix: "", label: t('community.stat1') },
-    { icon: Users, value: 100000, suffix: "+", label: t('community.stat2') },
-    { icon: Globe, value: 0, label: t('community.stat3'), display: "National" },
-    { icon: Target, value: 1, suffix: "", label: t('community.stat4') },
-  ];
 
   const NEXT_CHAPTER = [
     { icon: Target, title: t('community.next1'), desc: t('community.next1Desc') },
@@ -29,42 +24,84 @@ export default function Community() {
   return (
     <div data-aos="fade-up">
       {/* Hero */}
-      <section className="relative h-[60vh] min-h-[400px]">
-        <img src={TEAM_IMG} alt={t('community.heroTitle')} className="absolute inset-0 w-full h-full object-cover" fetchPriority="high" />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/30" />
-        <div className="relative z-10 h-full max-w-[1400px] mx-auto px-6 lg:px-16 flex items-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('community.heroLabel')}</span>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy mt-4 leading-tight">{t('community.heroTitle')}</h1>
-            <p className="text-navy/60 text-lg mt-4 max-w-lg">{t('community.heroDesc')}</p>
-            <div className="gold-line w-20 mt-6" />
-          </motion.div>
-        </div>
+      <section className="relative h-screen min-h-[400px] bg-black">
+        <motion.video
+          src={SUPRATHON_HACK_VIDEO}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-contain"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        />
       </section>
 
       {/* What Is SuPrathon */}
-      <section className="py-28 lg:py-40 bg-white">
+      <section className="py-8 lg:py-10 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
-          <div className="max-w-3xl mx-auto text-center">
-            <SectionHeading label={t('community.whatLabel')} title={t('community.whatTitle')} />
-            <p className="text-navy/60 text-base leading-relaxed mb-4">{t('community.whatP1')}</p>
-            <p className="text-navy/60 text-base leading-relaxed mb-4">{t('community.whatP2')}</p>
-            <p className="text-navy/60 text-base leading-relaxed">{t('community.whatP3')}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Numbers */}
-      <section className="py-20 bg-alabaster">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {STATS.map((stat, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false }} transition={{ duration: 0.6, delay: i * 0.1 }} className="text-center py-10 bg-white rounded-lg border border-gray-100">
-                <stat.icon className="text-gold mx-auto mb-4" size={32} />
-                <div className="text-3xl lg:text-4xl font-bold text-navy">{stat.display || <CountUp end={stat.value} suffix={stat.suffix} />}</div>
-                <div className="text-xs text-navy/50 font-medium tracking-wide uppercase mt-2">{stat.label}</div>
-              </motion.div>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.8 }}
+              className="overflow-hidden rounded-lg aspect-[4/3]"
+            >
+              <img src={SUPRATHON_H_IMG} alt="SuPrathon" className="w-full h-full object-contain" loading="lazy" decoding="async" />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.8 }}
+            >
+              <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase block mb-4">{t('community.whatLabel')}</span>
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold text-navy leading-tight">{t('community.whatTitle')}</h2>
+              <div className="gold-line w-16 mt-4" />
+              <p className="text-navy/60 text-base leading-relaxed mb-3">{t('community.whatP1')}</p>
+              <p className="text-navy/60 text-base leading-relaxed mb-3">{t('community.whatP2')}</p>
+              <p className="text-navy/60 text-base leading-relaxed">{t('community.whatP3')}</p>
+              <div className="flex flex-col md:flex-row gap-3 md:gap-4 mt-5">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="flex-1 flex flex-col items-center justify-center gap-3 py-5 px-6 rounded-md bg-gold/[0.03] border border-gold/10"
+                >
+                  <span className="text-2xl lg:text-3xl font-bold text-navy"><CountUp end={1} duration={1000} /></span>
+                  <span className="text-xs text-navy/50 font-medium tracking-wide uppercase">World Record Holder</span>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false }}
+                  transition={{ duration: 0.6, delay: 0.25 }}
+                  className="flex-1 flex flex-col items-center justify-center gap-3 py-5 px-6 rounded-md bg-gold/[0.03] border border-gold/10"
+                >
+                  <span className="text-2xl lg:text-3xl font-bold text-navy"><CountUp end={100000} duration={2000} suffix="+" /></span>
+                  <span className="text-xs text-navy/50 font-medium tracking-wide uppercase">Participants</span>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="flex-1 flex flex-col items-center justify-center gap-3 py-5 px-6 rounded-md bg-gold/[0.03] border border-gold/10"
+                >
+                  <motion.span
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false }}
+                    transition={{ duration: 0.8 }}
+                    className="text-2xl lg:text-3xl font-bold text-navy"
+                  >National</motion.span>
+                  <span className="text-xs text-navy/50 font-medium tracking-wide uppercase">National Reach</span>
+                </motion.div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -75,7 +112,14 @@ export default function Community() {
           <SectionHeading label={t('community.nextLabel')} title={t('community.nextTitle')} description={t('community.nextDesc')} />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {NEXT_CHAPTER.map((item, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false }} transition={{ duration: 0.6, delay: i * 0.1 }} className="border border-gray-100 rounded-lg p-8 hover:shadow-lg transition-all duration-500">
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="border border-gray-100 rounded-lg p-8 hover:shadow-lg transition-all duration-500"
+              >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center shrink-0"><item.icon size={20} className="text-gold" /></div>
                   <div><h4 className="text-lg font-semibold text-navy mb-2">{item.title}</h4><p className="text-navy/50 text-sm leading-relaxed">{item.desc}</p></div>

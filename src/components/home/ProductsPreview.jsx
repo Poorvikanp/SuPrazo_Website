@@ -22,7 +22,7 @@ export default function ProductsPreview() {
   ];
 
   return (
-    <section className="pt-4 lg:pt-6 pb-16 lg:pb-20 bg-white">
+    <section className="py-10 lg:py-12 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
         <SectionHeading title={t('productsPreview.title')} description={t('productsPreview.desc')} />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

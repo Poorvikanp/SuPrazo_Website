@@ -6,7 +6,7 @@ import CountUp from "@/components/shared/CountUp";
 import { useLang } from "@/lib/LanguageContext";
 import PremiumButton from "@/components/shared/PremiumButton";
 
-const ABOUT_IMG = "/images/team-campus.png";
+const ABOUT_IMG = "/images/Team_Home.png";
 
 export default function AboutPreview() {
   const { t } = useLang();
@@ -16,18 +16,18 @@ export default function AboutPreview() {
   ];
 
   return (
-    <section className="py-28 lg:py-40 bg-white">
+    <section className="py-10 lg:py-12 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8 }}>
-            <div className="overflow-hidden rounded-lg">
-              <img src={ABOUT_IMG} alt="SuPrazo Technologies" className="w-full h-[520px] md:h-[560px] object-cover rounded-lg" loading="lazy" decoding="async" />
+            <div className="overflow-hidden rounded-lg aspect-[4/3]">
+              <img src={ABOUT_IMG} alt="SuPrazo Technologies" className="w-full h-full object-contain rounded-lg" loading="lazy" decoding="async" />
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.2 }}>
             <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('aboutPreview.label')}</span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mt-4 leading-tight">{t('aboutPreview.title')}</h2>
-            <div className="gold-line w-16 mt-6 mb-8" />
+            <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold text-navy mt-4 leading-tight">{t('aboutPreview.title')}</h2>
+            <div className="gold-line w-16 mt-4 mb-6" />
             <p className="text-navy/60 text-base leading-relaxed mb-4">{t('aboutPreview.p1')}</p>
             <p className="text-navy/60 text-base leading-relaxed mb-8">{t('aboutPreview.p2')}</p>
             <div className="grid grid-cols-2 gap-6 mb-10">

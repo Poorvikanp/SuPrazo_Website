@@ -8,7 +8,7 @@ import ApplicationProcess from "@/components/shared/ApplicationProcess";
 import { ArrowRight, MapPin, Briefcase, Zap, Users, Layers } from "lucide-react";
 import { useLang } from "@/lib/LanguageContext";
 
-const TEAM_IMG = "/images/team-campus.png";
+const CAREER_HERO = "/images/Career_Hero.png";
 
 export default function Careers() {
   const { t } = useLang();
@@ -30,14 +30,14 @@ export default function Careers() {
     <div data-aos="fade-up">
       {/* Hero */}
       <section className="relative h-[60vh] min-h-[400px]">
-        <img src={TEAM_IMG} alt={t('careers.heroTitle')} className="absolute inset-0 w-full h-full object-cover" fetchPriority="high" />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/30" />
-        <div className="relative z-10 h-full max-w-[1400px] mx-auto px-6 lg:px-16 flex items-center">
+        <img src={CAREER_HERO} alt={t('careers.heroTitle')} className="absolute inset-0 w-full h-full object-cover object-position-center md:object-position-[50%_55%] lg:object-position-[50%_60%]" fetchPriority="high" />
+        <div className="absolute left-0 top-0 bottom-0 w-[40%]" style={{ background: 'linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 30%, rgba(0,0,0,0.08) 55%, rgba(0,0,0,0) 75%)' }} />
+        <div className="relative z-10 h-full flex flex-col items-start pt-[70px] pl-[70px]">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('careers.heroLabel')}</span>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy mt-4 leading-tight">{t('careers.heroTitle')}</h1>
-            <p className="text-navy/60 text-lg mt-4 max-w-lg">{t('careers.heroDesc')}</p>
-            <div className="gold-line w-20 mt-6" />
+            <h1 className="font-display text-[44px] md:text-[46px] lg:text-[48px] font-bold text-white leading-[1.1]" style={{ textShadow: '0 3px 12px rgba(0,0,0,0.35)' }}>
+              <span className="block">{t('careers.heroLine1')}</span>
+              <span className="block text-[52px] md:text-[54px] lg:text-[56px]">{t('careers.heroLine2')}</span>
+            </h1>
           </motion.div>
         </div>
       </section>

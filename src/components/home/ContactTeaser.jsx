@@ -7,7 +7,7 @@ import PremiumButton from "@/components/shared/PremiumButton";
 export default function ContactTeaser() {
   const { t } = useLang();
   return (
-    <section className="py-28 lg:py-40 bg-alabaster">
+    <section className="py-10 lg:py-12 bg-alabaster">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 text-center">
          <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8 }}>
           <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('contactTeaser.label')}</span>

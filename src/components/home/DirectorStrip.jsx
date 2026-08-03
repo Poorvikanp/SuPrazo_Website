@@ -39,7 +39,7 @@ export default function DirectorStrip() {
   }, [isQuoteInView, isComplete, quoteText]);
 
   return (
-    <section className="py-28 lg:py-40 bg-alabaster">
+    <section className="py-10 lg:py-12 bg-alabaster">
       <style>{`
         @keyframes cursorBlink {
           0%, 100% { opacity: 1; }

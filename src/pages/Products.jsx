@@ -7,7 +7,7 @@ import PremiumButton from "@/components/shared/PremiumButton";
 import CountUp from "@/components/shared/CountUp";
 import { useLang } from "@/lib/LanguageContext";
 
-const HERO_IMG = "/images/Gemini_Generated_Image_ls7qhuls7qhuls7q.png";
+const HERO_VIDEO = "/videos/products.mp4";
 const CORPOOL_IMG = "/images/CorPool-product.png";
 const INTERVIEW_IMG = "/images/HireMe-product.jpg";
 const MOCKPREP_IMG = "/images/Mockai-product.png";
@@ -48,17 +48,9 @@ export default function Products() {
   return (
     <div data-aos="fade-up">
       {/* Hero */}
-      <section className="relative h-[60vh] min-h-[400px]">
-        <img src={HERO_IMG} alt={t('products.heroTitle')} className="absolute inset-0 w-full h-full object-cover" fetchPriority="high" />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/30" />
-        <div className="relative z-10 h-full max-w-[1400px] mx-auto px-6 lg:px-16 flex items-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('products.heroLabel')}</span>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy mt-4 leading-tight">{t('products.heroTitle')}</h1>
-            <p className="text-navy/60 text-lg mt-4 max-w-lg">{t('products.heroDesc')}</p>
-            <div className="gold-line w-20 mt-6" />
-          </motion.div>
-        </div>
+      <section className="relative h-screen min-h-[500px]">
+        <video src={HERO_VIDEO} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover object-center" fetchPriority="high" />
+        <div className="absolute inset-0 bg-black/10" />
       </section>
 
       {/* CorPool — image left, text right */}

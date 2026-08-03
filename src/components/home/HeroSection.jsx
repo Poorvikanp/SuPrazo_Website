@@ -3,20 +3,27 @@ const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me
 import React from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { useLang } from "@/lib/LanguageContext";
 import PremiumButton from "@/components/shared/PremiumButton";
 import hero1 from "../../assets/images/hero1.png";
 import hero2 from "../../assets/images/hero2.png";
-import hero3 from "../../assets/images/hero3.png";
+import hero3 from "/images/Hero3.png";
+import hero4 from "/images/hero4.png";
 
 const HERO_SLIDES = [
   { src: hero1, alt: "SuPrazo Technologies campus", fit: "object-cover" },
   { src: hero2, alt: "SuPrazo enterprise campus", fit: "object-cover" },
   { src: hero3, alt: "SuPrazo innovation community", fit: "object-cover" },
+  { src: hero4, alt: "SuPrazo engineering culture and AI innovation", fit: "object-cover" },
+];
+
+const HERO_CONTENT = [
+  { label: "SuPrazo Technologies", title: "Building Tomorrow's Enterprise", subtitle: "Driving technology, innovation, research, products and community impact.", exploreEcosystem: "Explore Ecosystem", exploreProducts: "Explore Products" },
+  { label: "SuPrazo Technologies", title: "Building Tomorrow's Enterprise", subtitle: "Driving technology, innovation, research, products and community impact.", exploreEcosystem: "Explore Ecosystem", exploreProducts: "Explore Products" },
+  { label: "SuPrazo Technologies", title: "Building Tomorrow's Enterprise", subtitle: "Driving technology, innovation, research, products and community impact.", exploreEcosystem: "Explore Ecosystem", exploreProducts: "Explore Products" },
+  { label: "SuPrazo Technologies", title: "Building the Future with AI", subtitle: "At Suprazo Technologies, our engineers, researchers, and innovators build intelligent AI products that empower businesses, students, and communities.", exploreEcosystem: "Explore Products", exploreProducts: "Join Our Team" },
 ];
 
 export default function HeroSection() {
-  const { t } = useLang();
   const [activeSlide, setActiveSlide] = React.useState(0);
 
   React.useEffect(() => {
@@ -27,6 +34,8 @@ export default function HeroSection() {
   }, []);
 
   const goToSlide = (index) => setActiveSlide((index + HERO_SLIDES.length) % HERO_SLIDES.length);
+
+  const content = HERO_CONTENT[activeSlide];
 
   return (
     <section className="relative h-[90vh] min-h-[700px] w-full overflow-hidden">
@@ -46,11 +55,12 @@ export default function HeroSection() {
             animate={{ opacity: activeSlide === index ? 1 : 0, scale: activeSlide === index ? 1 : 1.03 }}
             transition={{ opacity: { duration: 1, ease: "easeInOut" }, scale: { duration: 8, ease: "easeOut" } }}
             fetchPriority={index === 0 ? "high" : "auto"}
+            style={{ filter: "brightness(1.05) contrast(1.05)" }}
           />
         ))}
       </motion.div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent" />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.20))" }} />
 
       <div className="relative z-10 h-full max-w-[1400px] mx-auto px-6 lg:px-16 flex items-center py-10 lg:py-14">
         <motion.div
@@ -60,18 +70,18 @@ export default function HeroSection() {
           className="w-full md:w-[50%] lg:w-[30%] bg-gradient-to-r from-black/30 via-black/20 to-transparent p-8 md:p-10 lg:p-12 rounded-sm"
         >
           <span className="text-gold text-[11px] font-semibold tracking-[0.3em] uppercase block mb-3">
-            {t('hero.label')}
+            {content.label}
           </span>
           <h1 className="font-display text-lg md:text-xl lg:text-[1.875rem] font-semibold text-white leading-tight tracking-tight">
-            {t('hero.title')}
+            {content.title}
           </h1>
           <p className="mt-4 text-white/80 text-sm leading-relaxed">
-            {t('hero.subtitle')}
+            {content.subtitle}
           </p>
 
           <div className="flex flex-wrap gap-3 mt-8">
-            <PremiumButton to="/about" variant="primary">{t('hero.exploreEcosystem')}</PremiumButton>
-            <PremiumButton to="/products" variant="light">{t('hero.exploreProducts')}</PremiumButton>
+            <PremiumButton to={content.exploreEcosystem === "Explore Products" ? "/products" : "/about"} variant="primary">{content.exploreEcosystem}</PremiumButton>
+            <PremiumButton to={content.exploreProducts === "Join Our Team" ? "/careers" : "/products"} variant="light">{content.exploreProducts}</PremiumButton>
           </div>
         </motion.div>
       </div>
