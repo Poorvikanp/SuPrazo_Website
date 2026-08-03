@@ -61,6 +61,7 @@ export default function ResetPassword() {
       title="New password"
       subtitle="Enter your new password below"
     >
+      <div className="w-full max-w-sm mx-auto">
       {error && (
         <div className="mb-4 p-3 rounded-lg bg-destructive/10 text-destructive text-sm">
           {error}
@@ -111,6 +112,7 @@ export default function ResetPassword() {
           )}
         </Button>
       </form>
+      </div>
     </AuthLayout>
   );
 }

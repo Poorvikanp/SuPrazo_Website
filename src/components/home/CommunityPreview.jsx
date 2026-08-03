@@ -12,23 +12,23 @@ const COMMUNITY_IMG = "/images/community-hackathon.png";
 export default function CommunityPreview() {
   const { t } = useLang();
   return (
-    <section className="py-10 lg:py-12 bg-white">
+    <section className="py-8 md:py-10 lg:py-12 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-16 items-center">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8 }}>
             <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('communityPreview.label')}</span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mt-4 leading-tight">{t('communityPreview.title')}</h2>
-            <div className="gold-line w-16 mt-6 mb-8" />
-            <p className="text-navy/60 text-base leading-relaxed mb-8">{t('communityPreview.desc')}</p>
-            <div className="flex gap-10 mb-10">
-              <div className="text-center"><Users className="text-gold mx-auto mb-2" size={28} /><div className="text-2xl font-bold text-navy"><CountUp end={100000} suffix="+" /></div><div className="text-xs text-navy/50 uppercase tracking-wide mt-1">{t('communityPreview.stat1')}</div></div>
-              <div className="text-center"><Globe className="text-gold mx-auto mb-2" size={28} /><div className="text-2xl font-bold text-navy"><CountUp end={1} suffix="" /></div><div className="text-xs text-navy/50 uppercase tracking-wide mt-1">{t('communityPreview.stat2')}</div></div>
-              <div className="text-center"><Trophy className="text-gold mx-auto mb-2" size={28} /><div className="text-2xl font-bold text-navy"><CountUp end={1} suffix="" /></div><div className="text-xs text-navy/50 uppercase tracking-wide mt-1">{t('communityPreview.stat3')}</div></div>
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mt-4 leading-tight">{t('communityPreview.title')}</h2>
+            <div className="gold-line w-16 mt-4 md:mt-6 mb-6 md:mb-8" />
+            <p className="text-navy/60 text-base leading-relaxed mb-6 md:mb-8">{t('communityPreview.desc')}</p>
+            <div className="flex flex-wrap gap-6 sm:gap-8 md:gap-10 mb-8 md:mb-10">
+              <div className="text-center"><Users className="text-gold mx-auto mb-2" size={24} /><div className="text-xl sm:text-2xl font-bold text-navy"><CountUp end={100000} suffix="+" /></div><div className="text-[10px] sm:text-xs text-navy/50 uppercase tracking-wide mt-1">{t('communityPreview.stat1')}</div></div>
+              <div className="text-center"><Globe className="text-gold mx-auto mb-2" size={24} /><div className="text-xl sm:text-2xl font-bold text-navy"><CountUp end={1} suffix="" /></div><div className="text-[10px] sm:text-xs text-navy/50 uppercase tracking-wide mt-1">{t('communityPreview.stat2')}</div></div>
+              <div className="text-center"><Trophy className="text-gold mx-auto mb-2" size={24} /><div className="text-xl sm:text-2xl font-bold text-navy"><CountUp end={1} suffix="" /></div><div className="text-[10px] sm:text-xs text-navy/50 uppercase tracking-wide mt-1">{t('communityPreview.stat3')}</div></div>
             </div>
             <PremiumButton to="/community" variant="ghost">{t('communityPreview.explore')}</PremiumButton>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.2 }}>
-            <div className="overflow-hidden rounded-lg"><img src={COMMUNITY_IMG} alt="SuPrathon Community" className="w-full h-[500px] object-cover" loading="lazy" decoding="async" /></div>
+            <div className="overflow-hidden rounded-lg"><img src={COMMUNITY_IMG} alt="SuPrathon Community" className="w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] object-cover" loading="lazy" decoding="async" /></div>
           </motion.div>
         </div>
       </div>

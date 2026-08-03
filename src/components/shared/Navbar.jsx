@@ -65,9 +65,9 @@ export default function Navbar() {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-white/80 backdrop-blur-sm"}`}>
       <div className="max-w-[1400px] mx-auto px-3 lg:px-16">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-3">
-            <img src={LOGO_URL} alt="SuPrazo Technologies" className="h-[90px] w-auto object-contain" />
-          </Link>
+          <Link to="/" className="flex items-center gap-2 sm:gap-3">
+             <img src={LOGO_URL} alt="SuPrazo Technologies" className="h-[45px] sm:h-[55px] md:h-[70px] lg:h-[90px] w-auto object-contain" />
+           </Link>
 
           <div className="hidden xl:flex items-center gap-7">
             <NavItem to="/" label={t('nav.home')} active={location.pathname === "/"} />

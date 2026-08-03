@@ -11,11 +11,11 @@ const OFFICE_IMG = "/images/meeting-room.png";
 export default function CareersTeaser() {
   const { t } = useLang();
   return (
-    <section className="py-10 lg:py-12 bg-white">
+    <section className="py-8 md:py-10 lg:py-12 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
         <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8 }} className="grid grid-cols-1 md:grid-cols-2 gap-2 rounded-lg overflow-hidden">
           <div className="relative">
-            <img src={TEAM_IMG} alt={t('careersTeaser.title')} className="w-full h-[400px] lg:h-[500px] object-cover" loading="lazy" decoding="async" />
+             <img src={TEAM_IMG} alt={t('careersTeaser.title')} className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] xl:h-[500px] object-cover" loading="lazy" decoding="async" />
             <div className="absolute inset-0 bg-gradient-to-r from-navy/85 via-navy/60 to-transparent" />
             <div className="absolute inset-0 flex items-center">
               <div className="px-8 lg:px-12 max-w-md">
@@ -28,7 +28,7 @@ export default function CareersTeaser() {
             </div>
           </div>
           <div className="hidden md:block overflow-hidden">
-            <img src={OFFICE_IMG} alt="SuPrazo Office" className="w-full h-[400px] lg:h-[500px] object-cover" loading="lazy" decoding="async" />
+             <img src={OFFICE_IMG} alt="SuPrazo Office" className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] xl:h-[500px] object-cover" loading="lazy" decoding="async" />
           </div>
         </motion.div>
       </div>

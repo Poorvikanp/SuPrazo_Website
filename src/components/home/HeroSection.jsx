@@ -63,27 +63,27 @@ export default function HeroSection() {
       <div className="absolute inset-0" style={{ background: "linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.20))" }} />
 
       <div className="relative z-10 h-full max-w-[1400px] mx-auto px-6 lg:px-16 flex items-center py-10 lg:py-14">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut", delay: 0.4 }}
-          className="w-full md:w-[50%] lg:w-[30%] bg-gradient-to-r from-black/30 via-black/20 to-transparent p-8 md:p-10 lg:p-12 rounded-sm"
-        >
-          <span className="text-gold text-[11px] font-semibold tracking-[0.3em] uppercase block mb-3">
-            {content.label}
-          </span>
-          <h1 className="font-display text-lg md:text-xl lg:text-[1.875rem] font-semibold text-white leading-tight tracking-tight">
-            {content.title}
-          </h1>
-          <p className="mt-4 text-white/80 text-sm leading-relaxed">
-            {content.subtitle}
-          </p>
+         <motion.div
+           initial={{ opacity: 0, y: 40 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.9, ease: "easeOut", delay: 0.4 }}
+           className="w-full sm:w-[80%] md:w-[70%] lg:w-[50%] xl:w-[30%] bg-gradient-to-r from-black/30 via-black/20 to-transparent p-6 sm:p-8 md:p-10 lg:p-12 rounded-sm"
+         >
+           <span className="text-gold text-[10px] sm:text-[11px] font-semibold tracking-[0.3em] uppercase block mb-2 sm:mb-3">
+             {content.label}
+           </span>
+           <h1 className="font-display text-base sm:text-lg md:text-xl lg:text-[1.875rem] font-semibold text-white leading-tight tracking-tight">
+             {content.title}
+           </h1>
+           <p className="mt-3 sm:mt-4 text-white/80 text-xs sm:text-sm leading-relaxed">
+             {content.subtitle}
+           </p>
 
-          <div className="flex flex-wrap gap-3 mt-8">
-            <PremiumButton to={content.exploreEcosystem === "Explore Products" ? "/products" : "/about"} variant="primary">{content.exploreEcosystem}</PremiumButton>
-            <PremiumButton to={content.exploreProducts === "Join Our Team" ? "/careers" : "/products"} variant="light">{content.exploreProducts}</PremiumButton>
-          </div>
-        </motion.div>
+           <div className="flex flex-wrap gap-2 sm:gap-3 mt-6 sm:mt-8">
+             <PremiumButton to={content.exploreEcosystem === "Explore Products" ? "/products" : "/about"} variant="primary">{content.exploreEcosystem}</PremiumButton>
+             <PremiumButton to={content.exploreProducts === "Join Our Team" ? "/careers" : "/products"} variant="light">{content.exploreProducts}</PremiumButton>
+           </div>
+         </motion.div>
       </div>
 
       <div className="absolute inset-y-0 left-4 right-4 z-20 hidden md:flex items-center justify-between pointer-events-none">

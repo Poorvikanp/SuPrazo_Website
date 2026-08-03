@@ -55,22 +55,22 @@ export default function DirectorsOffice() {
           50% { opacity: 0; }
         }
       `}</style>
-      <section className="relative overflow-hidden min-h-[400px] lg:min-h-[500px]" style={{ backgroundImage: `url(${DIRECTOR_OFFICE})`, backgroundSize: 'cover', backgroundPosition: 'top center' }}>
-        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-transparent" />
-        
-        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-16 py-10 lg:py-12">
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-10">
+      <section className="relative overflow-hidden min-h-[300px] sm:min-h-[400px] md:min-h-[500px]" style={{ backgroundImage: `url(${DIRECTOR_OFFICE})`, backgroundSize: 'cover', backgroundPosition: 'top center' }}>
+         <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-transparent" />
+         
+         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-16 py-8 md:py-10 lg:py-12">
+           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 lg:gap-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.8 }}
-              className="w-full lg:w-[38%] flex flex-col justify-center mt-8"
+               className="w-full md:w-[45%] lg:w-[38%] flex flex-col justify-center mt-6 md:mt-8"
             >
               <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">LEADERSHIP</span>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-5xl font-bold text-navy mt-4 leading-tight">
-                {t('director.name')}
-              </h1>
+               <h1 className="font-display text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-navy mt-4 leading-tight">
+                 {t('director.name')}
+               </h1>
               <div className="gold-line w-16 mt-6 mb-6" />
 
               <div className="flex flex-row gap-4">
@@ -99,7 +99,7 @@ export default function DirectorsOffice() {
         </div>
       </section>
 
-      <section className="py-28 lg:py-40 bg-alabaster">
+      <section className="py-16 md:py-24 lg:py-40 bg-alabaster">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 lg:gap-24 items-start">
             <motion.div
@@ -126,7 +126,7 @@ export default function DirectorsOffice() {
               className="lg:col-span-3"
             >
               <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('director.profileLabel')}</span>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mt-4">{t('director.name')}</h2>
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mt-4 leading-tight">{t('director.name')}</h2>
               <p className="text-navy/50 text-sm mt-2 mb-2">{t('director.title1')}</p>
               <div className="gold-line w-16 mb-8" />
 
@@ -155,10 +155,10 @@ export default function DirectorsOffice() {
         </div>
       </section>
 
-      <section className="py-28 lg:py-40 bg-white">
+      <section className="py-16 md:py-24 lg:py-40 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <SectionHeading label={t('director.philoLabel')} title={t('director.philoTitle')} />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {PHILOSOPHY.map((item, i) => (
               <motion.div
                 key={i}

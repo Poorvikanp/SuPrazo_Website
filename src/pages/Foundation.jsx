@@ -50,7 +50,7 @@ export default function Foundation() {
       {/* Overview */}
       <section className="pt-6 lg:pt-8 pb-28 lg:pb-40 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div>
               <SectionHeading label={t('foundation.aboutLabel')} title={t('foundation.aboutTitle')} />
               <p className="text-navy/60 text-base leading-relaxed mb-4">{t('foundation.aboutP1')}</p>
@@ -64,11 +64,11 @@ export default function Foundation() {
       </section>
 
       {/* Women's ED Cell */}
-      <section className="py-28 lg:py-40 bg-alabaster">
+      <section className="py-16 md:py-24 lg:py-40 bg-alabaster">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}               viewport={{ once: false }} transition={{ duration: 0.8 }}>
-              <img src={FOUNDATION2_IMG} alt={t('foundation.edTitle')} className="w-full h-[500px] object-contain rounded-lg" loading="lazy" decoding="async" />
+              <img src={FOUNDATION2_IMG} alt={t('foundation.edTitle')} className="w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] object-contain rounded-lg" loading="lazy" decoding="async" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}               viewport={{ once: false }} transition={{ duration: 0.8, delay: 0.2 }}>
               <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('foundation.edLabel')}</span>
@@ -95,7 +95,7 @@ export default function Foundation() {
       </section>
 
       {/* Application Process */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-16 md:py-24 lg:py-24 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <SectionHeading label={t('foundation.processLabel')} title={t('foundation.processTitle')} />
 

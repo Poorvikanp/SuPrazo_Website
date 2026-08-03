@@ -96,15 +96,15 @@ Thank you.`;
    return (
      <div data-aos="fade-up">
        {/* Hero */}
-      <section className="relative bg-alabaster py-32 lg:py-40">
+      <section className="relative bg-alabaster py-20 md:py-28 lg:py-40">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <img src={SUPRAZO_ART} alt="SUPRAZO" className="w-full max-w-5xl mx-auto opacity-20" loading="lazy" decoding="async" />
         </div>
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-16">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('contact.heroLabel')}</span>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy mt-4 leading-tight">{t('contact.heroTitle')}</h1>
-            <p className="text-navy/60 text-lg mt-4 max-w-lg">{t('contact.heroDesc')}</p>
+             <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-navy mt-4 leading-tight">{t('contact.heroTitle')}</h1>
+             <p className="text-navy/60 text-sm sm:text-base md:text-lg mt-4 max-w-lg">{t('contact.heroDesc')}</p>
             <div className="gold-line w-20 mt-6" />
           </motion.div>
         </div>
@@ -148,26 +148,26 @@ Thank you.`;
                   <h3 className="font-display text-2xl font-semibold text-navy mb-6">{t('contact.formTitle')}</h3>
                   <div className="gold-line w-12 mb-8" />
                   <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <FormField label={`${t('contact.fullName')} *`} value={form.full_name} onChange={v => handleChange("full_name", v)} />
-                      <FormField label={`${t('contact.email')} *`} type="email" value={form.email} onChange={v => handleChange("email", v)} />
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <FormField label={t('contact.phone')} value={form.phone} onChange={v => handleChange("phone", v)} />
-                      <FormField label={t('contact.company')} value={form.company} onChange={v => handleChange("company", v)} />
-                    </div>
-                    <div>
-                      <label className="text-xs font-semibold text-navy/70 tracking-wide uppercase block mb-2">{`${t('contact.reason')} *`}</label>
-                      <select value={form.reason} onChange={e => handleChange("reason", e.target.value)} className="w-full border border-gray-200 rounded-lg p-4 text-sm text-navy outline-none focus:border-gold transition-colors bg-white">
+                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                       <FormField label={`${t('contact.fullName')} *`} value={form.full_name} onChange={v => handleChange("full_name", v)} />
+                       <FormField label={`${t('contact.email')} *`} type="email" value={form.email} onChange={v => handleChange("email", v)} />
+                     </div>
+                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                       <FormField label={t('contact.phone')} value={form.phone} onChange={v => handleChange("phone", v)} />
+                       <FormField label={t('contact.company')} value={form.company} onChange={v => handleChange("company", v)} />
+                     </div>
+                     <div>
+                       <label className="text-xs font-semibold text-navy/70 tracking-wide uppercase block mb-2">{`${t('contact.reason')} *`}</label>
+                       <select value={form.reason} onChange={e => handleChange("reason", e.target.value)} className="w-full border border-gray-200 rounded-lg p-3 sm:p-4 text-sm text-navy outline-none focus:border-gold transition-colors bg-white min-h-[44px]">
                         <option value="">{t('contact.reasonSelect')}</option>
                         {REASONS.map(r => <option key={r.value} value={r.value}>{r.label}</option>)}
                       </select>
                     </div>
-                    <div>
-                      <label className="text-xs font-semibold text-navy/70 tracking-wide uppercase block mb-2">{`${t('contact.message')} *`}</label>
-                      <textarea value={form.message} onChange={e => handleChange("message", e.target.value)} rows={5} className="w-full border border-gray-200 rounded-lg p-4 text-sm text-navy outline-none focus:border-gold transition-colors resize-none" placeholder={t('contact.messagePlaceholder')} />
-                    </div>
-                    <button type="submit" disabled={submitting} className="group inline-flex items-center gap-2 bg-gold text-white px-8 py-4 text-sm font-semibold tracking-wide uppercase hover:bg-gold/90 hover:-translate-y-0.5 transition-all duration-400 rounded premium-shadow disabled:opacity-50 disabled:hover:translate-y-0">{submitting ? t('contact.sending') : t('contact.send')} <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" /></button>
+                     <div>
+                       <label className="text-xs font-semibold text-navy/70 tracking-wide uppercase block mb-2">{`${t('contact.message')} *`}</label>
+                       <textarea value={form.message} onChange={e => handleChange("message", e.target.value)} rows={5} className="w-full border border-gray-200 rounded-lg p-3 sm:p-4 text-sm text-navy outline-none focus:border-gold transition-colors resize-none" placeholder={t('contact.messagePlaceholder')} />
+                     </div>
+                     <button type="submit" disabled={submitting} className="group inline-flex items-center justify-center gap-2 bg-gold text-white px-6 sm:px-8 py-3 sm:py-4 text-sm font-semibold tracking-wide uppercase hover:bg-gold/90 hover:-translate-y-0.5 transition-all duration-400 rounded premium-shadow disabled:opacity-50 disabled:hover:translate-y-0">{submitting ? t('contact.sending') : t('contact.send')} <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" /></button>
                   </form>
                 </>
               )}
@@ -177,9 +177,9 @@ Thank you.`;
       </section>
 
       {/* Social */}
-      <section className="py-20 bg-alabaster">
+      <section className="py-16 md:py-24 lg:py-20 bg-alabaster">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {[
               {
                 title: "SuPrazo",

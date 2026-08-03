@@ -20,10 +20,10 @@ export default function EcosystemSection() {
   ];
 
   return (
-    <section className="py-10 lg:py-12 bg-alabaster">
+    <section className="py-8 md:py-10 lg:py-12 bg-alabaster">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
         <SectionHeading label={t('ecoSection.label')} title={t('ecoSection.title')} description={t('ecoSection.desc')} />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
           {PILLARS.map((pillar, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-60px" }} transition={{ duration: 0.7, delay: i * 0.15 }}>
               <Link to={pillar.link} className="group block bg-white rounded-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2">

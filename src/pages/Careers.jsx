@@ -29,21 +29,21 @@ export default function Careers() {
   return (
     <div data-aos="fade-up">
       {/* Hero */}
-      <section className="relative h-[60vh] min-h-[400px]">
-        <img src={CAREER_HERO} alt={t('careers.heroTitle')} className="absolute inset-0 w-full h-full object-cover object-position-center md:object-position-[50%_55%] lg:object-position-[50%_60%]" fetchPriority="high" />
-        <div className="absolute left-0 top-0 bottom-0 w-[40%]" style={{ background: 'linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 30%, rgba(0,0,0,0.08) 55%, rgba(0,0,0,0) 75%)' }} />
-        <div className="relative z-10 h-full flex flex-col items-start pt-[70px] pl-[70px]">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <h1 className="font-display text-[44px] md:text-[46px] lg:text-[48px] font-bold text-white leading-[1.1]" style={{ textShadow: '0 3px 12px rgba(0,0,0,0.35)' }}>
-              <span className="block">{t('careers.heroLine1')}</span>
-              <span className="block text-[52px] md:text-[54px] lg:text-[56px]">{t('careers.heroLine2')}</span>
-            </h1>
-          </motion.div>
-        </div>
-      </section>
+      <section className="relative h-[50vh] sm:h-[55vh] md:h-[60vh] min-h-[400px]">
+         <img src={CAREER_HERO} alt={t('careers.heroTitle')} className="absolute inset-0 w-full h-full object-cover object-center md:object-position-[50%_55%] lg:object-position-[50%_60%]" fetchPriority="high" />
+         <div className="absolute left-0 top-0 bottom-0 w-[40%]" style={{ background: 'linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 30%, rgba(0,0,0,0.08) 55%, rgba(0,0,0,0) 75%)' }} />
+         <div className="relative z-10 h-full flex flex-col items-start pt-[40px] sm:pt-[50px] md:pt-[60px] lg:pt-[70px] pl-[40px] sm:pl-[50px] md:pl-[60px] lg:pl-[70px]">
+           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+             <h1 className="font-display text-2xl sm:text-3xl md:text-[40px] lg:text-[44px] xl:text-[48px] font-bold text-white leading-[1.1]" style={{ textShadow: '0 3px 12px rgba(0,0,0,0.35)' }}>
+               <span className="block">{t('careers.heroLine1')}</span>
+               <span className="block text-3xl sm:text-[38px] md:text-[44px] lg:text-[48px] xl:text-[56px]">{t('careers.heroLine2')}</span>
+             </h1>
+           </motion.div>
+         </div>
+       </section>
 
       {/* Why SuPrazo */}
-      <section className="py-28 lg:py-40 bg-white">
+      <section className="py-16 md:py-24 lg:py-40 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <SectionHeading label={t('careers.whyLabel')} title={t('careers.whyTitle')} />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -62,7 +62,7 @@ export default function Careers() {
       <ApplicationProcess />
 
       {/* Open Roles */}
-      <section className="py-28 lg:py-40 bg-alabaster">
+      <section className="py-16 md:py-24 lg:py-40 bg-alabaster">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <SectionHeading label={t('careers.rolesLabel')} title={t('careers.rolesTitle')} />
           <div className="flex flex-col gap-4 max-w-4xl mx-auto">
@@ -86,7 +86,7 @@ export default function Careers() {
       </section>
 
       {/* Apply Section */}
-      <section className="py-28 lg:py-40 bg-white">
+      <section className="py-16 md:py-24 lg:py-40 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16 text-center">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mb-6">Ready to Build With Us?</h2>
           <p className="text-navy/60 text-base leading-relaxed max-w-2xl mx-auto mb-10">Join a team that ships real products and builds real communities. Apply now and start your journey with SuPrazo.</p>

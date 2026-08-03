@@ -38,6 +38,7 @@ export default function ForgotPassword() {
         </Link>
       }
     >
+      <div className="w-full max-w-sm mx-auto">
       {sent ? (
         <p className="text-sm text-foreground text-center">
           If an account exists with that email, you'll receive a password reset link shortly.
@@ -73,6 +74,7 @@ export default function ForgotPassword() {
           </Button>
         </form>
       )}
+      </div>
     </AuthLayout>
   );
 }

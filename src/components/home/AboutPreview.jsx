@@ -16,13 +16,13 @@ export default function AboutPreview() {
   ];
 
   return (
-    <section className="py-10 lg:py-12 bg-white">
+    <section className="py-8 md:py-10 lg:py-12 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-14 items-center">
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8 }}>
-            <div className="overflow-hidden rounded-lg aspect-[4/3]">
-              <img src={ABOUT_IMG} alt="SuPrazo Technologies" className="w-full h-full object-contain rounded-lg" loading="lazy" decoding="async" />
-            </div>
+             <div className="overflow-hidden rounded-lg aspect-[4/3]">
+               <img src={ABOUT_IMG} alt="SuPrazo Technologies" className="w-full h-full object-contain rounded-lg" loading="lazy" decoding="async" />
+             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.2 }}>
             <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('aboutPreview.label')}</span>

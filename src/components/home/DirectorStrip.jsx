@@ -39,7 +39,7 @@ export default function DirectorStrip() {
   }, [isQuoteInView, isComplete, quoteText]);
 
   return (
-    <section className="py-10 lg:py-12 bg-alabaster">
+    <section className="py-8 md:py-10 lg:py-12 bg-alabaster">
       <style>{`
         @keyframes cursorBlink {
           0%, 100% { opacity: 1; }
@@ -47,11 +47,11 @@ export default function DirectorStrip() {
         }
       `}</style>
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20 items-center">
-           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8 }} className="lg:col-span-2">
-              <div className="overflow-hidden rounded-lg"><img src={DIRECTOR_IMG} alt={t('director.name')} className="w-full h-[500px] lg:h-[600px] object-contain" loading="lazy" decoding="async" /></div>
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-12 lg:gap-20 items-center">
+           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8 }} className="md:col-span-2">
+              <div className="overflow-hidden rounded-lg"><img src={DIRECTOR_IMG} alt={t('director.name')} className="w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[600px] object-contain" loading="lazy" decoding="async" /></div>
            </motion.div>
-           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.2 }} className="lg:col-span-3 flex flex-col justify-center">
+           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.2 }} className="md:col-span-3 flex flex-col justify-center">
             <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('directorStrip.label')}</span>
             <div className="gold-line w-16 mt-4 mb-8" />
             <blockquote className="font-display text-2xl md:text-3xl lg:text-4xl text-navy leading-snug italic">

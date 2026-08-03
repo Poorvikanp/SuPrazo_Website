@@ -48,6 +48,7 @@ export default function Login() {
         </>
       }
     >
+      <div className="w-full max-w-sm mx-auto">
       <Button
         variant="outline"
         className="w-full h-12 text-sm font-medium mb-6"
@@ -122,6 +123,7 @@ export default function Login() {
           )}
         </Button>
       </form>
+      </div>
     </AuthLayout>
   );
 }

@@ -33,18 +33,18 @@ export default function Footer() {
 
   return (
     <footer className="bg-navy text-white">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-16 py-16">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-16 py-12 md:py-16">
         {/* Top Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-16">
           {/* Column 1: Brand */}
-          <div className="lg:col-span-1">
-            <img src={LOGO_URL} alt="SuPrazo Technologies" className="h-12 w-auto object-contain brightness-0 invert mb-6" />
-            <p className="text-white/60 text-sm leading-relaxed mb-8">
-              {t('footer.desc')}
-            </p>
+          <div className="sm:col-span-2 lg:col-span-1 text-center sm:text-left">
+             <img src={LOGO_URL} alt="SuPrazo Technologies" className="h-10 sm:h-12 w-auto object-contain brightness-0 invert mb-4 sm:mb-6 mx-auto sm:mx-0" />
+             <p className="text-white/60 text-sm leading-relaxed mb-6 sm:mb-8">
+               {t('footer.desc')}
+             </p>
 
-            {/* Social Icons */}
-            <div className="flex gap-3">
+             {/* Social Icons */}
+             <div className="flex gap-3 justify-center sm:justify-start">
               {SOCIALS.map((s, i) => (
                 <a
                   key={i}
@@ -61,11 +61,11 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Quick Links */}
-          <div>
-            <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-6">
-              {t('footer.quickLinks')}
-            </h4>
-            <div className="flex flex-col gap-3">
+          <div className="text-center sm:text-left">
+             <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-4 sm:mb-6">
+               {t('footer.quickLinks')}
+             </h4>
+             <div className="flex flex-col gap-2 sm:gap-3 items-center sm:items-start">
               {QUICK_LINKS.map((link, i) => (
                 <Link
                   key={i}
@@ -79,11 +79,11 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Products */}
-          <div>
-            <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-6">
-              {t('footer.products')}
-            </h4>
-            <div className="flex flex-col gap-3">
+          <div className="text-center sm:text-left">
+             <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-4 sm:mb-6">
+               {t('footer.products')}
+             </h4>
+             <div className="flex flex-col gap-2 sm:gap-3 items-center sm:items-start">
               {PRODUCTS.map((p, i) => (
                 <Link
                   key={i}
@@ -97,11 +97,11 @@ export default function Footer() {
           </div>
 
           {/* Column 4: Contact */}
-          <div>
-            <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-6">
-              {t('footer.getInTouch')}
-            </h4>
-            <div className="flex flex-col gap-3">
+          <div className="text-center sm:text-left">
+             <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-4 sm:mb-6">
+               {t('footer.getInTouch')}
+             </h4>
+             <div className="flex flex-col gap-2 sm:gap-3 items-center sm:items-start">
               <a
                 href="mailto:info@suprazotech.com"
                 className="text-white/60 hover:text-gold text-sm transition-colors duration-300 w-fit"

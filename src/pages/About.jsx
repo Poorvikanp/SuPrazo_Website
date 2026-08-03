@@ -16,15 +16,15 @@ export default function About() {
     <div data-aos="fade-up">
       {/* Hero Banner */}
       <section className="relative h-screen min-h-[400px] bg-black">
-        <video src={HERO_VIDEO} autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-contain" />
+        <video src={HERO_VIDEO} autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover" />
       </section>
 
       {/* Company Overview */}
       <section className="py-10 lg:py-12 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.8 }}>
-              <img src={TEAM_IMG} alt="SuPrazo Team" className="w-full h-[500px] object-cover rounded-lg" loading="lazy" decoding="async" />
+              <img src={TEAM_IMG} alt="SuPrazo Team" className="w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] object-cover rounded-lg" loading="lazy" decoding="async" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.8, delay: 0.2 }}>
               <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('about.overviewLabel')}</span>

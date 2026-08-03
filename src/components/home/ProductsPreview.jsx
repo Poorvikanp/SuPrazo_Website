@@ -22,16 +22,16 @@ export default function ProductsPreview() {
   ];
 
   return (
-    <section className="py-10 lg:py-12 bg-white">
+    <section className="py-8 md:py-10 lg:py-12 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
         <SectionHeading title={t('productsPreview.title')} description={t('productsPreview.desc')} />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
           {PRODUCTS.map((product, i) => (
             <motion.div key={i} initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-60px" }} transition={{ duration: 0.7, delay: i * 0.15 }} className="group border border-gray-100 rounded-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-500">
               <div className="overflow-hidden">
                 <img src={product.image} alt={product.name} className="w-full h-[200px] object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
               </div>
-              <div className="p-10">
+              <div className="p-6 sm:p-8 md:p-10">
                 <h3 className="text-xl font-semibold text-navy mb-2">{product.name}</h3>
                 <p className="text-gold text-sm font-medium mb-4">{product.tagline}</p>
                 <p className="text-navy/50 text-sm leading-relaxed mb-8">{product.desc}</p>

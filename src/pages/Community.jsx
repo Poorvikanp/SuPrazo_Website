@@ -31,7 +31,7 @@ export default function Community() {
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-contain"
+          className="absolute inset-0 w-full h-full object-cover"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
@@ -39,7 +39,7 @@ export default function Community() {
       </section>
 
       {/* What Is SuPrathon */}
-      <section className="py-8 lg:py-10 bg-white">
+      <section className="py-6 md:py-8 lg:py-10 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             <motion.div
@@ -107,7 +107,7 @@ export default function Community() {
       </section>
 
       {/* SuPrathon 2.0 */}
-      <section className="py-28 lg:py-40 bg-white">
+      <section className="py-16 md:py-24 lg:py-28 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <SectionHeading label={t('community.nextLabel')} title={t('community.nextTitle')} description={t('community.nextDesc')} />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
