@@ -11,15 +11,15 @@ export default function CountUp({ end, prefix = "", suffix = "", duration = 2000
       setCount(0);
       return;
     }
-    let start = 0;
-    const step = Math.max(1, Math.floor(end / (duration / 16)));
+    const startTime = Date.now();
     const timer = setInterval(() => {
-      start += step;
-      if (start >= end) {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * end));
+      if (progress >= 1) {
         setCount(end);
         clearInterval(timer);
-      } else {
-        setCount(start);
       }
     }, 16);
     return () => clearInterval(timer);
