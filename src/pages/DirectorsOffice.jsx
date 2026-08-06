@@ -31,8 +31,12 @@ export default function DirectorsOffice() {
   const quoteText = t('director.quote');
 
   useEffect(() => {
-    if (!isQuoteInView || isComplete) return;
+    if (!isQuoteInView) return;
+
+    setDisplayedText("");
     setIsTyping(true);
+    setIsComplete(false);
+
     let currentIndex = 0;
     const interval = setInterval(() => {
       if (currentIndex < quoteText.length) {
@@ -44,8 +48,9 @@ export default function DirectorsOffice() {
         setIsComplete(true);
       }
     }, 40);
+
     return () => clearInterval(interval);
-  }, [isQuoteInView, isComplete, quoteText]);
+  }, [isQuoteInView, quoteText]);
 
   return (
     <div data-aos="fade-up">
@@ -112,7 +117,7 @@ export default function DirectorsOffice() {
               <img
                 src={DIRECTOR_PORTRAIT}
                 alt={t('director.name')}
-                className="w-full h-auto object-contain max-h-[500px] rounded-lg bg-alabaster"
+                className="w-full h-auto object-contain max-h-[500px]"
                 loading="lazy"
                 decoding="async"
               />

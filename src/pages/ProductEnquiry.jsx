@@ -7,6 +7,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { ArrowLeft, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLang } from "@/lib/LanguageContext";
+import { buildMailtoLink } from "@/lib/utils";
 
 export default function ProductEnquiry() {
   const { t } = useLang();
@@ -59,14 +60,7 @@ export default function ProductEnquiry() {
 
     const interestLine = reasonMap[form.reason] || `I am interested in ${form.reason}.`;
 
-    const message = `Hello SuPrazo Team,
-
-I contacted you through the SuPrazo Technologies website.
-
-I am interested in:
-${form.product}
-
---------------------------------
+    const message = `Product Enquiry
 
 Name:
 ${form.full_name}
@@ -80,23 +74,26 @@ ${form.phone}
 Company:
 ${company}
 
+Product:
+${form.product}
+
 Reason:
 ${form.reason}
 
 Message:
 ${form.message}
 
---------------------------------
-
 Looking forward to your response.
 
 Thank you.`;
 
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/919665658240?text=${encodedMessage}`;
+    const mailtoLink = buildMailtoLink({
+      subject: `Product Enquiry - ${form.product} - ${form.full_name}`,
+      body: message,
+    });
 
     setTimeout(() => {
-      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+      window.open(mailtoLink, "_blank", "noopener,noreferrer");
       setSubmitted(true);
       setSubmitting(false);
       setForm({ full_name: "", email: "", phone: "", company: "", product: form.product, reason: "", message: "" });

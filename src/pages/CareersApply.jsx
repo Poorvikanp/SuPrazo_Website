@@ -8,6 +8,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { ArrowLeft, Upload, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLang } from "@/lib/LanguageContext";
+import { buildMailtoLink } from "@/lib/utils";
 
 export default function CareersApply() {
   const { t } = useLang();
@@ -69,14 +70,7 @@ export default function CareersApply() {
     const portfolio = form.college || "Not provided";
     const linkedin = form.linkedin_url || "Not provided";
 
-    const message = `Hello SuPrazo Team,
-
-I am applying through the SuPrazo Technologies Careers page.
-
---------------------------------
-
-Position:
-${form.role}
+    const message = `Job Application
 
 Name:
 ${form.full_name}
@@ -87,30 +81,33 @@ ${form.email}
 Phone:
 ${phone}
 
+Location:
+${portfolio}
+
+Position:
+${form.role}
+
 Availability:
 ${form.availability}
-
-Portfolio:
-${portfolio}
 
 LinkedIn:
 ${linkedin}
 
+Resume:
+(User will attach manually)
+
 Message:
 ${form.why_join}
 
---------------------------------
-
-Note:
-I will attach my resume manually in WhatsApp before sending.
-
 Thank you.`;
 
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/919665658240?text=${encodedMessage}`;
+    const mailtoLink = buildMailtoLink({
+      subject: `Job Application - ${form.full_name}`,
+      body: message,
+    });
 
     setTimeout(() => {
-      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+      window.open(mailtoLink, "_blank", "noopener,noreferrer");
       setSubmitted(true);
       setSubmitting(false);
       setForm({ full_name: "", email: "", phone: "", role: "", vertical: "", college: "", linkedin_url: "", resume_url: "", why_join: "", availability: "", how_heard: "" });
@@ -158,7 +155,7 @@ Thank you.`;
                 </label>
                 {form.resume_url && <span className="text-xs text-green-600">{t('apply.uploaded')}</span>}
               </div>
-              <p className="text-xs text-navy/50 mt-2">Your resume cannot be attached automatically. Please attach it manually after WhatsApp opens.</p>
+               <p className="text-xs text-navy/50 mt-2">Your resume cannot be attached automatically. Please attach it manually after your email client opens.</p>
             </div>
 
           <div>

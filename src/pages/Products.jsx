@@ -48,7 +48,7 @@ export default function Products() {
   return (
     <div data-aos="fade-up">
       {/* Hero */}
-      <section className="relative h-screen min-h-[500px]">
+      <section className="relative h-[48vh] sm:h-[56vh] md:h-[60vh] lg:h-[64vh] min-h-[520px]">
         <video src={HERO_VIDEO} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover object-center" fetchPriority="high" />
         <div className="absolute inset-0 bg-black/10" />
       </section>

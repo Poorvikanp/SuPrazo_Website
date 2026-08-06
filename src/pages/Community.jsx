@@ -24,7 +24,7 @@ export default function Community() {
   return (
     <div data-aos="fade-up">
       {/* Hero */}
-      <section className="relative h-screen min-h-[400px] bg-black">
+      <section className="relative h-[48vh] sm:h-[56vh] md:h-[60vh] lg:h-[64vh] min-h-[520px] w-full overflow-hidden bg-black">
         <motion.video
           src={SUPRATHON_HACK_VIDEO}
           autoPlay
@@ -32,6 +32,7 @@ export default function Community() {
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "50% 30%" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
@@ -107,10 +108,10 @@ export default function Community() {
       </section>
 
       {/* SuPrathon 2.0 */}
-      <section className="py-16 md:py-24 lg:py-28 bg-white">
+      <section className="py-8 md:py-12 lg:py-14 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
-          <SectionHeading label={t('community.nextLabel')} title={t('community.nextTitle')} description={t('community.nextDesc')} />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <SectionHeading label={t('community.nextLabel')} title={t('community.nextTitle')} description={t('community.nextDesc')} className="mb-8 md:mb-10" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
             {NEXT_CHAPTER.map((item, i) => (
               <motion.div
                 key={i}
@@ -118,7 +119,7 @@ export default function Community() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="border border-gray-100 rounded-lg p-8 hover:shadow-lg transition-all duration-500"
+                className="border border-gray-100 rounded-lg p-6 md:p-7 hover:shadow-lg transition-all duration-500"
               >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center shrink-0"><item.icon size={20} className="text-gold" /></div>

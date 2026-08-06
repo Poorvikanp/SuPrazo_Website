@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { UserPlus, ClipboardCheck, ShieldCheck, MessageSquare, CheckCircle, ArrowRight } from "lucide-react";
 import SectionHeading from "@/components/shared/SectionHeading";
 import { useLang } from "@/lib/LanguageContext";
+import { buildMailtoLink } from "@/lib/utils";
 
 const FOUNDATION_IMG = "/images/Foundation1.png";
 const FOUNDATION2_IMG = "/images/Sufalpra_presentation.png";
@@ -56,8 +57,10 @@ export default function Foundation() {
               <p className="text-navy/60 text-base leading-relaxed mb-4">{t('foundation.aboutP1')}</p>
               <p className="text-navy/60 text-base leading-relaxed">{t('foundation.aboutP2')}</p>
             </div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.8 }} className="overflow-hidden rounded-lg premium-shadow bg-white">
-              <img src={SUFALPRA_ART} alt="SuFalPra Foundation" className="w-full h-auto max-h-[600px] object-contain mx-auto" loading="lazy" decoding="async" />
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.8 }} className="flex items-center justify-center">
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-6">
+                <img src={SUFALPRA_ART} alt="SuFalPra Foundation" className="w-full h-auto max-h-[480px] sm:max-h-[520px] object-contain mx-auto" style={{ filter: "brightness(1.05) contrast(0.95)" }} loading="lazy" decoding="async" />
+              </div>
             </motion.div>
           </div>
         </div>
@@ -182,21 +185,23 @@ export default function Foundation() {
 
           {/* Apply Now CTA */}
           <div className="mt-12 lg:mt-16 text-center">
-            <motion.button
+               <motion.button
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.5 }}
               onClick={() => {
-                const message = `Hello SuFalPra Foundation Team,
+                const mailtoLink = buildMailtoLink({
+                  subject: "SuFalPra Foundation Enquiry",
+                  body: `Hello SuFalPra Foundation Team,
 
 I would like to apply for the SuFalPra Foundation program.
 
 Please share the application details and the next steps.
 
-Thank you.`;
-                const encodedMessage = encodeURIComponent(message);
-                window.open(`https://wa.me/919665658240?text=${encodedMessage}`, '_blank', 'noopener,noreferrer');
+Thank you.`,
+                });
+                window.open(mailtoLink, '_blank', 'noopener,noreferrer');
               }}
               className="group inline-flex items-center gap-3 bg-gold text-white px-10 py-4 text-sm font-semibold tracking-wide uppercase rounded-lg premium-shadow hover:bg-gold/90 hover:-translate-y-0.5 transition-all duration-400"
             >

@@ -38,7 +38,7 @@ export default function HeroSection() {
   const content = HERO_CONTENT[activeSlide];
 
   return (
-    <section className="relative h-[90vh] min-h-[700px] w-full overflow-hidden">
+    <section className="relative h-[48vh] sm:h-[56vh] md:h-[60vh] lg:h-[64vh] min-h-[520px] w-full overflow-hidden">
       <motion.div
         className="absolute inset-0 w-full h-full overflow-hidden"
         initial={{ clipPath: "inset(0 100% 0 0)" }}
@@ -62,7 +62,7 @@ export default function HeroSection() {
 
       <div className="absolute inset-0" style={{ background: "linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.20))" }} />
 
-      <div className="relative z-10 h-full max-w-[1400px] mx-auto px-6 lg:px-16 flex items-center py-10 lg:py-14">
+      <div className="relative z-10 h-full max-w-[1400px] mx-auto px-6 lg:px-16 flex items-center py-6 sm:py-8 lg:py-10">
          <motion.div
            initial={{ opacity: 0, y: 40 }}
            animate={{ opacity: 1, y: 0 }}

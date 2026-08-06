@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useToast } from "@/components/ui/use-toast";
 import { Mail, MapPin, CheckCircle, ArrowRight, MessageCircle, Instagram, Linkedin } from "lucide-react";
 import { useLang } from "@/lib/LanguageContext";
+import { buildMailtoLink } from "@/lib/utils";
 
 const SUPRAZO_ART = "/images/suprazo.jpg";
 
@@ -38,8 +39,6 @@ export default function Contact() {
 
   const handleChange = (field, value) => setForm(prev => ({ ...prev, [field]: value }));
 
-  const WHATSAPP_NUMBER = "919665658240";
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.full_name || !form.email || !form.reason || !form.message) {
@@ -52,11 +51,7 @@ export default function Contact() {
     const phone = form.phone || "Not provided";
     const company = form.company || "Not provided";
 
-    const message = `Hello SuPrazo Team,
-
-I contacted you through the SuPrazo Technologies website.
-
---------------------------------
+    const message = `Website Enquiry
 
 Name:
 ${form.full_name}
@@ -67,26 +62,26 @@ ${form.email}
 Phone:
 ${phone}
 
-Reason:
-${form.reason}
-
 Company:
 ${company}
 
+Reason:
+${form.reason}
+
 Message:
 ${form.message}
-
---------------------------------
 
 Looking forward to your response.
 
 Thank you.`;
 
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+    const mailtoLink = buildMailtoLink({
+      subject: `Website Enquiry - ${form.full_name}`,
+      body: message,
+    });
 
     setTimeout(() => {
-      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+      window.open(mailtoLink, "_blank", "noopener,noreferrer");
       setSubmitted(true);
       setSubmitting(false);
       setForm({ full_name: "", email: "", phone: "", reason: "", company: "", message: "" });

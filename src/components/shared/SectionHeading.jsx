@@ -1,14 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function SectionHeading({ label, title, description, align = "center", light = false }) {
+export default function SectionHeading({ label, title, description, align = "center", light = false, className = "" }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, margin: "-80px" }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className={`mb-16 ${align === "center" ? "text-center" : "text-left"}`}
+      className={`mb-16 ${align === "center" ? "text-center" : "text-left"} ${className}`}
     >
       {label && (
         <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase block mb-4">
