@@ -15,7 +15,7 @@ export default function CommunityPreview() {
     <section className="py-8 md:py-10 lg:py-12 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-16 items-center">
-          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8 }}>
+          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8 }} className="order-2 md:order-1">
             <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('communityPreview.label')}</span>
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mt-4 leading-tight">{t('communityPreview.title')}</h2>
             <div className="gold-line w-16 mt-4 md:mt-6 mb-6 md:mb-8" />
@@ -27,7 +27,7 @@ export default function CommunityPreview() {
             </div>
             <PremiumButton to="/community" variant="ghost">{t('communityPreview.explore')}</PremiumButton>
           </motion.div>
-          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.2 }}>
+          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.2 }} className="order-1 md:order-2">
             <div className="overflow-hidden rounded-lg"><img src={COMMUNITY_IMG} alt="SuPrathon Community" className="w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] object-cover" loading="lazy" decoding="async" /></div>
           </motion.div>
         </div>

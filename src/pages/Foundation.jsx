@@ -36,8 +36,8 @@ export default function Foundation() {
   return (
     <div data-aos="fade-up">
       {/* Hero */}
-      <section className="relative h-[60vh] min-h-[400px]">
-        <img src={FOUNDATION_IMG} alt={t('foundation.heroTitle')} className="absolute inset-0 w-full h-full object-cover" fetchPriority="high" />
+      <section className="relative h-[62vh] min-h-[420px] sm:min-h-[470px] md:min-h-[530px]">
+        <img src={FOUNDATION_IMG} alt={t('foundation.heroTitle')} className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} fetchPriority="high" />
         <div className="absolute inset-0 bg-gradient-to-t from-white/15 via-white/10 to-white/5" />
         <div className="relative z-10 h-full max-w-[1400px] mx-auto px-6 lg:px-16 flex items-start pt-8 lg:pt-12">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -49,7 +49,7 @@ export default function Foundation() {
       </section>
 
       {/* Overview */}
-      <section className="pt-6 lg:pt-8 pb-28 lg:pb-40 bg-white">
+      <section className="pt-12 lg:pt-20 pb-20 lg:pb-20 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div>
@@ -67,7 +67,7 @@ export default function Foundation() {
       </section>
 
       {/* Women's ED Cell */}
-      <section className="py-16 md:py-24 lg:py-40 bg-alabaster">
+      <section className="py-16 md:py-24 lg:py-24 bg-alabaster">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}               viewport={{ once: false }} transition={{ duration: 0.8 }}>
