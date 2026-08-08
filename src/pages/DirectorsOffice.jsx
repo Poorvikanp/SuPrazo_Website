@@ -60,8 +60,12 @@ export default function DirectorsOffice() {
           50% { opacity: 0; }
         }
       `}</style>
-      <section className="relative overflow-hidden min-h-[300px] sm:min-h-[400px] md:min-h-[500px]" style={{ backgroundImage: `url(${DIRECTOR_OFFICE})`, backgroundSize: 'cover', backgroundPosition: 'top center' }}>
-         <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-transparent" />
+      <section className="relative overflow-hidden min-h-[300px] sm:min-h-[400px] md:min-h-[500px]">
+         <div className="hidden md:block absolute inset-0 bg-cover bg-top-center" style={{ backgroundImage: `url(${DIRECTOR_OFFICE})` }} />
+         <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-transparent" />
+         <div className="md:hidden w-full bg-white">
+           <img src={DIRECTOR_OFFICE} alt={t('director.name')} className="w-full h-auto object-contain" />
+         </div>
          
          <div className="relative max-w-[1400px] mx-auto px-6 lg:px-16 py-8 md:py-10 lg:py-12">
            <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 lg:gap-10">
@@ -98,8 +102,7 @@ export default function DirectorsOffice() {
               </div>
             </motion.div>
 
-            <div className="w-full lg:w-[62%]">
-            </div>
+            <div className="hidden md:block w-full lg:w-[62%]"></div>
           </div>
         </div>
       </section>
