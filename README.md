@@ -18,7 +18,7 @@ The website is built as a modern responsive React application with a focus on cl
 - 📱 Fully responsive design for desktop, tablet, and mobile
 - 🎬 Video and image-based hero sections
 - ✨ Scroll and entrance animations
-- 🌐 Multi-language support
+- 🌐 Multi-language support(english and Hindi)
 - 🧭 Responsive navigation with mobile menu
 - 🔗 Social media and external links
 - 🎨 Modern corporate UI with reusable components
