@@ -37,7 +37,7 @@ export default function Foundation() {
     <div data-aos="fade-up">
       {/* Hero */}
       <section className="relative h-[62vh] min-h-[420px] sm:min-h-[470px] md:min-h-[530px]">
-        <img src={FOUNDATION_IMG} alt={t('foundation.heroTitle')} className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} fetchPriority="high" />
+        <img src={FOUNDATION_IMG} alt={t('foundation.heroTitle')} className="foundation-hero-img absolute inset-0 w-full h-full object-cover" fetchPriority="high" />
         <div className="absolute inset-0 bg-gradient-to-t from-white/15 via-white/10 to-white/5" />
         <div className="relative z-10 h-full max-w-[1400px] mx-auto px-6 lg:px-16 flex items-start pt-8 lg:pt-12">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -47,6 +47,17 @@ export default function Foundation() {
           </motion.div>
         </div>
       </section>
+
+      <style>{`
+        .foundation-hero-img {
+          object-position: center 30%;
+        }
+        @media (max-width: 767px) {
+          .foundation-hero-img {
+            object-position: center 60%;
+          }
+        }
+      `}</style>
 
       {/* Overview */}
       <section className="pt-12 lg:pt-20 pb-20 lg:pb-20 bg-white">

@@ -24,20 +24,30 @@ export default function Community() {
   return (
     <div data-aos="fade-up">
       {/* Hero */}
-      <section className="relative h-[48vh] sm:h-[56vh] md:h-[60vh] lg:h-[64vh] min-h-[520px] w-full overflow-hidden bg-black">
+      <section className="relative h-[48vh] sm:h-[56vh] md:h-[60vh] lg:h-[64vh] md:min-h-[520px] w-full overflow-hidden bg-black">
         <motion.video
           src={SUPRATHON_HACK_VIDEO}
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "50% 30%" }}
+          className="community-hero-video absolute inset-0 w-full h-full object-cover"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         />
       </section>
+
+      <style>{`
+        .community-hero-video {
+          object-position: 50% 30%;
+        }
+        @media (max-width: 767px) {
+          .community-hero-video {
+            object-position: 50% 45%;
+          }
+        }
+      `}</style>
 
       {/* What Is SuPrathon */}
       <section className="py-6 md:py-8 lg:py-10 bg-white">

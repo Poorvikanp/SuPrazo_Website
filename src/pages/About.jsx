@@ -15,9 +15,17 @@ export default function About() {
   return (
     <div data-aos="fade-up">
       {/* Hero Banner */}
-      <section className="relative h-[48vh] sm:h-[56vh] md:h-[60vh] lg:h-[64vh] min-h-[520px] w-full overflow-hidden bg-black">
-        <video src={HERO_VIDEO} autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center center" }} />
+      <section className="relative h-[48vh] sm:h-[56vh] md:h-[60vh] lg:h-[64vh] md:min-h-[520px] w-full overflow-hidden bg-black">
+        <video src={HERO_VIDEO} autoPlay muted loop playsInline className="about-hero-video absolute inset-0 w-full h-full object-cover" />
       </section>
+
+      <style>{`
+        @media (max-width: 767px) {
+          .about-hero-video {
+            object-position: 50% 65%;
+          }
+        }
+      `}</style>
 
       {/* Company Overview */}
       <section className="py-10 lg:py-12 bg-white">
