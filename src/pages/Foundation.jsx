@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { UserPlus, ClipboardCheck, ShieldCheck, MessageSquare, CheckCircle, ArrowRight } from "lucide-react";
 import SectionHeading from "@/components/shared/SectionHeading";
 import { useLang } from "@/lib/LanguageContext";
-import { buildMailtoLink, openMailtoLink } from "@/lib/utils";
+import { buildMailtoLink } from "@/lib/utils";
 
 const FOUNDATION_IMG = "/images/Foundation1.png";
 const FOUNDATION2_IMG = "/images/Sufalpra_presentation.png";
@@ -201,19 +201,30 @@ export default function Foundation() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.5 }}
-              onClick={() => {
-                const mailtoLink = buildMailtoLink({
-                  subject: "SuFalPra Foundation Enquiry",
-                  body: `Hello SuFalPra Foundation Team,
+               onClick={() => {
+                 const subject = "SuFalPra Foundation Enquiry";
+                 const body = `Hello SuFalPra Foundation Team,
 
 I would like to apply for the SuFalPra Foundation program.
 
 Please share the application details and the next steps.
 
-Thank you.`,
-                });
-                openMailtoLink(mailtoLink);
-              }}
+Thank you.`;
+
+                 const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop|webOS/i.test(navigator.userAgent);
+
+                 if (isMobile) {
+                   const mailtoLink = buildMailtoLink({ subject, body });
+                   window.location.href = mailtoLink;
+                 } else {
+                   const gmailUrl =
+                     `https://mail.google.com/mail/?view=cm&fs=1` +
+                     `&to=${encodeURIComponent("info@suprazotech.com")}` +
+                     `&su=${encodeURIComponent(subject)}` +
+                     `&body=${encodeURIComponent(body)}`;
+                   window.open(gmailUrl, "_blank", "noopener,noreferrer");
+                 }
+               }}
               className="group inline-flex items-center gap-3 bg-gold text-white px-10 py-4 text-sm font-semibold tracking-wide uppercase rounded-lg premium-shadow hover:bg-gold/90 hover:-translate-y-0.5 transition-all duration-400"
             >
               {t('foundation.applyNow')}

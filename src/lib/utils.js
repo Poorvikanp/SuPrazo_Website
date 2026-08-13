@@ -12,7 +12,12 @@ export function buildMailtoLink({ recipient = "info@suprazotech.com", subject = 
 }
 
 export function openMailtoLink(mailtoLink) {
-  window.location.href = mailtoLink
+  const a = document.createElement("a")
+  a.href = mailtoLink
+  a.style.cssText = "position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;pointer-events:none;"
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
 }
 
 export const isIframe = window.self !== window.top;
