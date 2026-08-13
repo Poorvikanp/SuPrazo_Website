@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { UserPlus, ClipboardCheck, ShieldCheck, MessageSquare, CheckCircle, ArrowRight } from "lucide-react";
 import SectionHeading from "@/components/shared/SectionHeading";
 import { useLang } from "@/lib/LanguageContext";
-import { buildMailtoLink } from "@/lib/utils";
+import { buildMailtoLink, openMailtoLink } from "@/lib/utils";
 
 const FOUNDATION_IMG = "/images/Foundation1.png";
 const FOUNDATION2_IMG = "/images/Sufalpra_presentation.png";
@@ -212,7 +212,7 @@ Please share the application details and the next steps.
 
 Thank you.`,
                 });
-                window.open(mailtoLink, '_blank', 'noopener,noreferrer');
+                openMailtoLink(mailtoLink);
               }}
               className="group inline-flex items-center gap-3 bg-gold text-white px-10 py-4 text-sm font-semibold tracking-wide uppercase rounded-lg premium-shadow hover:bg-gold/90 hover:-translate-y-0.5 transition-all duration-400"
             >

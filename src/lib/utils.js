@@ -6,10 +6,13 @@ export function cn(...inputs) {
 }
 
 export function buildMailtoLink({ recipient = "info@suprazotech.com", subject = "", body = "" }) {
-  const url = new URL("mailto:" + recipient)
-  url.searchParams.set("subject", subject)
-  url.searchParams.set("body", body)
-  return url.toString()
+  const encodedSubject = encodeURIComponent(subject)
+  const encodedBody = encodeURIComponent(body)
+  return `mailto:${recipient}?subject=${encodedSubject}&body=${encodedBody}`
+}
+
+export function openMailtoLink(mailtoLink) {
+  window.location.href = mailtoLink
 }
 
 export const isIframe = window.self !== window.top;

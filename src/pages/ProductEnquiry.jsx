@@ -7,7 +7,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { ArrowLeft, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLang } from "@/lib/LanguageContext";
-import { buildMailtoLink } from "@/lib/utils";
+import { buildMailtoLink, openMailtoLink } from "@/lib/utils";
 
 export default function ProductEnquiry() {
   const { t } = useLang();
@@ -93,7 +93,7 @@ Thank you.`;
     });
 
     setTimeout(() => {
-      window.open(mailtoLink, "_blank", "noopener,noreferrer");
+      openMailtoLink(mailtoLink);
       setSubmitted(true);
       setSubmitting(false);
       setForm({ full_name: "", email: "", phone: "", company: "", product: form.product, reason: "", message: "" });

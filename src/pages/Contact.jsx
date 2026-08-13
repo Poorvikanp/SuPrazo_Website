@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { useToast } from "@/components/ui/use-toast";
 import { Mail, MapPin, CheckCircle, ArrowRight, MessageCircle, Instagram, Linkedin } from "lucide-react";
 import { useLang } from "@/lib/LanguageContext";
-import { buildMailtoLink } from "@/lib/utils";
+import { buildMailtoLink, openMailtoLink } from "@/lib/utils";
 
 const SUPRAZO_ART = "/images/suprazo.jpg";
 
@@ -81,7 +81,7 @@ Thank you.`;
     });
 
     setTimeout(() => {
-      window.open(mailtoLink, "_blank", "noopener,noreferrer");
+      openMailtoLink(mailtoLink);
       setSubmitted(true);
       setSubmitting(false);
       setForm({ full_name: "", email: "", phone: "", reason: "", company: "", message: "" });
