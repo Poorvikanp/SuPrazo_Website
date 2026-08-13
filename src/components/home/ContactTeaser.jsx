@@ -15,7 +15,7 @@ export default function ContactTeaser() {
           <div className="gold-line w-16 mx-auto mt-6 mb-8" />
           <p className="text-navy/60 text-base leading-relaxed max-w-xl mx-auto mb-10">{t('contactTeaser.desc')}</p>
           <div className="flex flex-wrap justify-center gap-6 mb-10">
-            <a href="mailto:hello@suprazo.com" className="flex items-center gap-2 text-navy/60 hover:text-gold transition-colors text-sm"><Mail size={16} /> hello@suprazo.com</a>
+            <a href="mailto:info@suprazotech.com" className="flex items-center gap-2 text-navy/60 hover:text-gold transition-colors text-sm"><Mail size={16} /> info@suprazotech.com</a>
             <span className="flex items-center gap-2 text-navy/60 text-sm"><MapPin size={16} /> {t('contact.locationValue')}</span>
           </div>
           <PremiumButton to="/contact" variant="dark" size="lg">{t('contactTeaser.contact')}</PremiumButton>

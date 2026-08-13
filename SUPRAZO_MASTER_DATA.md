@@ -351,7 +351,7 @@ India
 
 Emails
 
-hello@suprazo.com
+info@suprazotech.com
 
 partnerships@suprazo.com
 

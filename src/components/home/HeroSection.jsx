@@ -38,7 +38,7 @@ export default function HeroSection() {
   const content = HERO_CONTENT[activeSlide];
 
   return (
-    <section className="relative h-[48vh] sm:h-[56vh] md:h-[60vh] lg:h-[64vh] min-h-[520px] w-full overflow-hidden">
+    <section className="relative h-[48vh] sm:h-[56vh] md:h-[60vh] lg:h-[64vh] md:min-h-[520px] w-full overflow-hidden">
       <motion.div
         className="absolute inset-0 w-full h-full overflow-hidden"
         initial={{ clipPath: "inset(0 100% 0 0)" }}
@@ -50,7 +50,7 @@ export default function HeroSection() {
             key={index}
             src={slide.src}
             alt={slide.alt}
-            className={`absolute inset-0 w-full h-full ${slide.fit} transition-opacity duration-1000 ease-in-out`}
+            className={`absolute inset-0 w-full h-full ${slide.fit} hero-slide-img transition-opacity duration-1000 ease-in-out`}
             initial={{ scale: index === 0 ? 1.08 : 1 }}
             animate={{ opacity: activeSlide === index ? 1 : 0, scale: activeSlide === index ? 1 : 1.03 }}
             transition={{ opacity: { duration: 1, ease: "easeInOut" }, scale: { duration: 8, ease: "easeOut" } }}
@@ -128,6 +128,14 @@ export default function HeroSection() {
           <ChevronDown size={18} className="text-white/60" />
         </div>
       </motion.div>
+
+      <style>{`
+        @media (max-width: 767px) {
+          .hero-slide-img {
+            object-position: 65% 50%;
+          }
+        }
+      `}</style>
     </section>
   );
 }
