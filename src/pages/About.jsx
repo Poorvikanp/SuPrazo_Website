@@ -15,7 +15,7 @@ export default function About() {
   return (
     <div data-aos="fade-up">
       {/* Hero Banner */}
-      <section className="relative h-[48vh] sm:h-[56vh] md:h-[60vh] lg:h-[64vh] md:min-h-[520px] w-full overflow-hidden bg-black">
+      <section className="relative h-[38vh] sm:h-[46vh] md:h-[60vh] lg:h-[64vh] md:min-h-[520px] w-full overflow-hidden bg-black">
         <video src={HERO_VIDEO} autoPlay muted loop playsInline className="about-hero-video absolute inset-0 w-full h-full object-cover" />
       </section>
 

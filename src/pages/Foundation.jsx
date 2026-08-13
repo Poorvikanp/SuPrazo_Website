@@ -36,7 +36,7 @@ export default function Foundation() {
   return (
     <div data-aos="fade-up">
       {/* Hero */}
-      <section className="relative h-[62vh] min-h-[420px] sm:min-h-[470px] md:min-h-[530px]">
+      <section className="relative h-[45vh] sm:h-[52vh] md:h-[62vh] min-h-[300px] sm:min-h-[360px] md:min-h-[530px] w-full">
         <img src={FOUNDATION_IMG} alt={t('foundation.heroTitle')} className="foundation-hero-img absolute inset-0 w-full h-full object-cover" fetchPriority="high" />
         <div className="absolute inset-0 bg-gradient-to-t from-white/15 via-white/10 to-white/5" />
         <div className="relative z-10 h-full max-w-[1400px] mx-auto px-6 lg:px-16 flex items-start pt-8 lg:pt-12">
