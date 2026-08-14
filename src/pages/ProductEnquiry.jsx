@@ -85,12 +85,12 @@ ${form.full_name}`;
     const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop|webOS/i.test(navigator.userAgent);
 
     if (isMobile) {
-      const mailtoLink = buildMailtoLink({ recipient: "poorvikanp245@gmail.com", subject, body });
+      const mailtoLink = buildMailtoLink({ recipient: "info@suprazotech.in", subject, body });
       window.location.href = mailtoLink;
     } else {
       const gmailUrl =
         `https://mail.google.com/mail/?view=cm&fs=1` +
-        `&to=${encodeURIComponent("poorvikanp245@gmail.com")}` +
+        `&to=${encodeURIComponent("info@suprazotech.in")}` +
         `&su=${encodeURIComponent(subject)}` +
         `&body=${encodeURIComponent(body)}`;
       window.open(gmailUrl, "_blank", "noopener,noreferrer");
