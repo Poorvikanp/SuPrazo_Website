@@ -181,18 +181,18 @@ export default function Navbar() {
             <div className="px-6 py-6 flex flex-col gap-1">
               <Link to="/" className="text-sm font-medium tracking-wide uppercase py-3 text-navy border-b border-gray-50">{t('nav.home')}</Link>
 
-              <button onClick={() => setOpenDropdown(openDropdown === "m-eco" ? null : "m-eco")} className="flex items-center justify-between text-sm font-medium tracking-wide uppercase py-3 text-navy border-b border-gray-50 hover:text-gold transition-colors">
+              <button type="button" onMouseDown={(e) => e.stopPropagation()} onClick={() => setOpenDropdown(openDropdown === "m-eco" ? null : "m-eco")} className="flex items-center justify-between text-sm font-medium tracking-wide uppercase py-3 text-navy border-b border-gray-50 hover:text-gold transition-colors">
                 {t('nav.ecosystem')} <ChevronDown size={14} className={`transition-transform ${openDropdown === "m-eco" ? "rotate-180" : ""}`} />
               </button>
               {openDropdown === "m-eco" && (
-                <div className="flex flex-col gap-1 pl-4 pb-2">
+                <div onMouseDown={(e) => e.stopPropagation()} className="flex flex-col gap-1 pl-4 pb-2">
                   {ECOSYSTEM_ITEMS.map((item) => (
-                    <Link key={item.path} to={item.path} className="py-2 text-sm text-navy/70 hover:text-gold">{t(item.nameKey)}</Link>
+                    <Link key={item.path} to={item.path} onClick={() => setMobileOpen(false)} className="py-2 text-sm text-navy/70 hover:text-gold">{t(item.nameKey)}</Link>
                   ))}
                 </div>
               )}
 
-              <button onClick={() => {
+              <button type="button" onMouseDown={(e) => e.stopPropagation()} onClick={() => {
                 if (openDropdown === "m-prod") {
                   setOpenDropdown(null);
                   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -204,9 +204,9 @@ export default function Navbar() {
                 {t('nav.products')} <ChevronDown size={14} className={`transition-transform ${openDropdown === "m-prod" ? "rotate-180" : ""}`} />
               </button>
               {openDropdown === "m-prod" && (
-                <div className="flex flex-col gap-1 pl-4 pb-2">
+                <div onMouseDown={(e) => e.stopPropagation()} className="flex flex-col gap-1 pl-4 pb-2">
                   {PRODUCT_ITEMS.map((item) => (
-                    <Link key={item.hash} to={`/products#${item.hash}`} className="py-2 text-sm text-navy/70 hover:text-gold">{t(item.nameKey)}</Link>
+                    <Link key={item.hash} to={`/products#${item.hash}`} onClick={() => setMobileOpen(false)} className="py-2 text-sm text-navy/70 hover:text-gold">{t(item.nameKey)}</Link>
                   ))}
                 </div>
               )}

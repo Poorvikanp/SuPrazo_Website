@@ -1,12 +1,12 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
+const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }), SendEmail: async (params) => { console.warn("SendEmail fallback stub called", params); return { success: true }; } } } };
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 import { useToast } from "@/components/ui/use-toast";
 import { Mail, MapPin, CheckCircle, ArrowRight, MessageCircle, Instagram, Linkedin } from "lucide-react";
+import { buildMailtoLink } from "@/lib/utils";
 import { useLang } from "@/lib/LanguageContext";
-import { buildMailtoLink, openMailtoLink } from "@/lib/utils";
 
 const SUPRAZO_ART = "/images/suprazo.jpg";
 
@@ -51,41 +51,44 @@ export default function Contact() {
     const phone = form.phone || "Not provided";
     const company = form.company || "Not provided";
 
-    const message = `Website Enquiry
+    const subject = `Website Enquiry - ${form.full_name}`;
+    const body = `Hello SuPrazo Technologies Team,
 
-Name:
-${form.full_name}
+I would like to get in touch regarding my enquiry.
 
-Email:
-${form.email}
+Here are my details:
 
-Phone:
-${phone}
-
-Company:
-${company}
-
-Reason:
-${form.reason}
+Name: ${form.full_name}
+Email: ${form.email}
+Phone: ${phone}
+Company / Organisation: ${company}
+Reason for Contact: ${form.reason}
 
 Message:
 ${form.message}
 
 Looking forward to your response.
 
-Thank you.`;
+Best regards,
+${form.full_name}`;
 
-    const mailtoLink = buildMailtoLink({
-      subject: `Website Enquiry - ${form.full_name}`,
-      body: message,
-    });
+    const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop|webOS/i.test(navigator.userAgent);
 
-    setTimeout(() => {
-      openMailtoLink(mailtoLink);
-      setSubmitted(true);
-      setSubmitting(false);
-      setForm({ full_name: "", email: "", phone: "", reason: "", company: "", message: "" });
-    }, 800);
+    if (isMobile) {
+      const mailtoLink = buildMailtoLink({ recipient: "poorvikanp245@gmail.com", subject, body });
+      window.location.href = mailtoLink;
+    } else {
+      const gmailUrl =
+        `https://mail.google.com/mail/?view=cm&fs=1` +
+        `&to=${encodeURIComponent("poorvikanp245@gmail.com")}` +
+        `&su=${encodeURIComponent(subject)}` +
+        `&body=${encodeURIComponent(body)}`;
+      window.open(gmailUrl, "_blank", "noopener,noreferrer");
+    }
+
+    setSubmitted(true);
+    setSubmitting(false);
+    setForm({ full_name: "", email: "", phone: "", reason: "", company: "", message: "" });
   };
 
    return (

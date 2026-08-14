@@ -1,4 +1,4 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
+const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }), SendEmail: async (params) => { console.warn("SendEmail fallback stub called", params); return { success: true }; } } } };
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
@@ -7,8 +7,8 @@ import { useLocation } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
 import { ArrowLeft, Upload, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { buildMailtoLink } from "@/lib/utils";
 import { useLang } from "@/lib/LanguageContext";
-import { buildMailtoLink, openMailtoLink } from "@/lib/utils";
 
 export default function CareersApply() {
   const { t } = useLang();
@@ -70,48 +70,48 @@ export default function CareersApply() {
     const portfolio = form.college || "Not provided";
     const linkedin = form.linkedin_url || "Not provided";
 
-    const message = `Job Application
+    const subject = `Job Application - ${form.full_name}`;
+    const body = `Hello SuPrazo Technologies Team,
 
-Name:
-${form.full_name}
+I would like to apply for an opportunity at SuPrazo Technologies.
 
-Email:
-${form.email}
+Here are my details:
 
-Phone:
-${phone}
+Name: ${form.full_name}
+Email: ${form.email}
+Phone: ${phone}
+Position / Role: ${form.role}
 
-Location:
-${portfolio}
+Additional Information:
+Location / College: ${portfolio}
+Availability: ${form.availability}
+LinkedIn: ${linkedin}
+Resume: (User will attach manually)
 
-Position:
-${form.role}
-
-Availability:
-${form.availability}
-
-LinkedIn:
-${linkedin}
-
-Resume:
-(User will attach manually)
-
-Message:
 ${form.why_join}
 
-Thank you.`;
+I look forward to hearing from you.
 
-    const mailtoLink = buildMailtoLink({
-      subject: `Job Application - ${form.full_name}`,
-      body: message,
-    });
+Best regards,
+${form.full_name}`;
 
-    setTimeout(() => {
-      openMailtoLink(mailtoLink);
-      setSubmitted(true);
-      setSubmitting(false);
-      setForm({ full_name: "", email: "", phone: "", role: "", vertical: "", college: "", linkedin_url: "", resume_url: "", why_join: "", availability: "", how_heard: "" });
-    }, 800);
+    const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop|webOS/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      const mailtoLink = buildMailtoLink({ recipient: "poorvikanp245@gmail.com", subject, body });
+      window.location.href = mailtoLink;
+    } else {
+      const gmailUrl =
+        `https://mail.google.com/mail/?view=cm&fs=1` +
+        `&to=${encodeURIComponent("poorvikanp245@gmail.com")}` +
+        `&su=${encodeURIComponent(subject)}` +
+        `&body=${encodeURIComponent(body)}`;
+      window.open(gmailUrl, "_blank", "noopener,noreferrer");
+    }
+
+    setSubmitted(true);
+    setSubmitting(false);
+    setForm({ full_name: "", email: "", phone: "", role: "", vertical: "", college: "", linkedin_url: "", resume_url: "", why_join: "", availability: "", how_heard: "" });
   };
 
   if (submitted) {

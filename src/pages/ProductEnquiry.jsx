@@ -1,4 +1,4 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
+const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }), SendEmail: async (params) => { console.warn("SendEmail fallback stub called", params); return { success: true }; } } } };
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
@@ -6,8 +6,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
 import { ArrowLeft, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { buildMailtoLink } from "@/lib/utils";
 import { useLang } from "@/lib/LanguageContext";
-import { buildMailtoLink, openMailtoLink } from "@/lib/utils";
 
 export default function ProductEnquiry() {
   const { t } = useLang();
@@ -60,44 +60,45 @@ export default function ProductEnquiry() {
 
     const interestLine = reasonMap[form.reason] || `I am interested in ${form.reason}.`;
 
-    const message = `Product Enquiry
+    const subject = `Product Enquiry - ${form.product} - ${form.full_name}`;
+    const body = `Hello SuPrazo Technologies Team,
 
-Name:
-${form.full_name}
+I am interested in learning more about the following product:
 
-Email:
-${form.email}
+Product: ${form.product}
 
-Phone:
-${form.phone}
+Here are my details:
 
-Company:
-${company}
-
-Product:
-${form.product}
-
-Reason:
-${form.reason}
+Name: ${form.full_name}
+Email: ${form.email}
+Phone: ${form.phone}
+Company / Organisation: ${company}
 
 Message:
 ${form.message}
 
-Looking forward to your response.
+I look forward to hearing from you.
 
-Thank you.`;
+Best regards,
+${form.full_name}`;
 
-    const mailtoLink = buildMailtoLink({
-      subject: `Product Enquiry - ${form.product} - ${form.full_name}`,
-      body: message,
-    });
+    const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop|webOS/i.test(navigator.userAgent);
 
-    setTimeout(() => {
-      openMailtoLink(mailtoLink);
-      setSubmitted(true);
-      setSubmitting(false);
-      setForm({ full_name: "", email: "", phone: "", company: "", product: form.product, reason: "", message: "" });
-    }, 800);
+    if (isMobile) {
+      const mailtoLink = buildMailtoLink({ recipient: "poorvikanp245@gmail.com", subject, body });
+      window.location.href = mailtoLink;
+    } else {
+      const gmailUrl =
+        `https://mail.google.com/mail/?view=cm&fs=1` +
+        `&to=${encodeURIComponent("poorvikanp245@gmail.com")}` +
+        `&su=${encodeURIComponent(subject)}` +
+        `&body=${encodeURIComponent(body)}`;
+      window.open(gmailUrl, "_blank", "noopener,noreferrer");
+    }
+
+    setSubmitted(true);
+    setSubmitting(false);
+    setForm({ full_name: "", email: "", phone: "", company: "", product: form.product, reason: "", message: "" });
   };
 
   if (submitted) {
