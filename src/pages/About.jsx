@@ -8,6 +8,7 @@ import { useLang } from "@/lib/LanguageContext";
 const TEAM_IMG = "/images/Suprazo_Team discussing.png";
 const HERO_IMG = "/images/campus-pool.png";
 const HERO_VIDEO = "/videos/suprazo_technology.mp4";
+const HERO_POSTER = "/images/suprazo_technology_poster.png";
 
 export default function About() {
   const { t } = useLang();
@@ -15,14 +16,22 @@ export default function About() {
   return (
     <div data-aos="fade-up">
       {/* Hero Banner */}
-      <section className="relative h-[38vh] sm:h-[46vh] md:h-[60vh] lg:h-[64vh] md:min-h-[520px] w-full overflow-hidden bg-black">
-        <video src={HERO_VIDEO} autoPlay muted loop playsInline className="about-hero-video absolute inset-0 w-full h-full object-cover" />
+      <section className="about-hero relative h-[50vh] sm:h-[46vh] md:h-[60vh] lg:h-[64vh] md:min-h-[520px] w-full overflow-hidden bg-black">
+        <video src={HERO_VIDEO} preload="auto" poster={HERO_POSTER} autoPlay muted loop playsInline className="about-hero-video absolute inset-0 w-full h-full object-cover" />
       </section>
 
       <style>{`
+        .about-hero-video {
+          object-position: 50% 65%;
+        }
         @media (max-width: 767px) {
+          section.about-hero {
+            aspect-ratio: 1920 / 1080;
+            height: auto !important;
+          }
           .about-hero-video {
-            object-position: 50% 65%;
+            object-fit: contain;
+            object-position: center;
           }
         }
       `}</style>
