@@ -19,7 +19,6 @@ export default function Foundation() {
     { title: t('foundation.ed2Title'), desc: t('foundation.ed2Desc') },
     { title: t('foundation.ed3Title'), desc: t('foundation.ed3Desc') },
     { title: t('foundation.ed4Title'), desc: t('foundation.ed4Desc') },
-    { title: t('foundation.ed5Title'), desc: t('foundation.ed5Desc') },
     { title: t('foundation.ed6Title'), desc: t('foundation.ed6Desc') },
   ];
 
@@ -88,7 +87,7 @@ export default function Foundation() {
               <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('foundation.edLabel')}</span>
               <h2 className="font-display text-3xl md:text-4xl font-semibold text-navy mt-4 leading-tight">{t('foundation.edTitle')}</h2>
               <div className="gold-line w-16 mt-6 mb-8" />
-<div className="flex flex-col gap-3">
+<div className="flex flex-col gap-2.5 sm:gap-3">
                   {ED_POINTS.map((point, i) => (
                     <div key={i} data-aos="fade-up" data-aos-delay={i * 100} className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-gold mt-2 shrink-0" />
