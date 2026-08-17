@@ -25,6 +25,36 @@ const HERO_CONTENT = [
 
 export default function HeroSection() {
   const [activeSlide, setActiveSlide] = React.useState(0);
+  const loadedSlidesRef = React.useRef(new Set([0]));
+  const [, forceUpdate] = React.useState(0);
+
+  const markSlideLoaded = React.useCallback((index) => {
+    if (!loadedSlidesRef.current.has(index)) {
+      loadedSlidesRef.current.add(index);
+      forceUpdate((n) => n + 1);
+    }
+  }, []);
+
+  const preloadSlide = React.useCallback((index) => {
+    if (loadedSlidesRef.current.has(index)) return;
+    const img = new Image();
+    img.src = HERO_SLIDES[index].src;
+    img.onload = () => markSlideLoaded(index);
+    img.onerror = () => markSlideLoaded(index);
+  }, [markSlideLoaded]);
+
+  React.useEffect(() => {
+    const nextIndex = (activeSlide + 1) % HERO_SLIDES.length;
+    preloadSlide(nextIndex);
+  }, [activeSlide, preloadSlide]);
+
+  const goToSlide = React.useCallback(
+    (index) => {
+      preloadSlide(index);
+      setActiveSlide((index + HERO_SLIDES.length) % HERO_SLIDES.length);
+    },
+    [preloadSlide]
+  );
 
   React.useEffect(() => {
     const timer = window.setInterval(() => {
@@ -32,8 +62,6 @@ export default function HeroSection() {
     }, 5000);
     return () => window.clearInterval(timer);
   }, []);
-
-  const goToSlide = (index) => setActiveSlide((index + HERO_SLIDES.length) % HERO_SLIDES.length);
 
   const content = HERO_CONTENT[activeSlide];
 
@@ -48,13 +76,13 @@ export default function HeroSection() {
         {HERO_SLIDES.map((slide, index) => (
           <motion.img
             key={index}
-            src={slide.src}
+            src={loadedSlidesRef.current.has(index) ? slide.src : undefined}
             alt={slide.alt}
             className={`absolute inset-0 w-full h-full ${slide.fit} hero-slide-img transition-opacity duration-1000 ease-in-out`}
             initial={{ scale: index === 0 ? 1.08 : 1 }}
             animate={{ opacity: activeSlide === index ? 1 : 0, scale: activeSlide === index ? 1 : 1.03 }}
             transition={{ opacity: { duration: 1, ease: "easeInOut" }, scale: { duration: 8, ease: "easeOut" } }}
-            fetchPriority={index === 0 ? "high" : "auto"}
+            fetchPriority={activeSlide === index ? "high" : "auto"}
             style={{ filter: "brightness(1.05) contrast(1.05)" }}
           />
         ))}
