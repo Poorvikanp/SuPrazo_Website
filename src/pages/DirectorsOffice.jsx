@@ -66,7 +66,7 @@ export default function DirectorsOffice() {
         }
       `}</style>
       <section className="relative overflow-hidden min-h-[360px] sm:min-h-[400px] md:min-h-[500px]">
-         <img src={DIRECTOR_OFFICE} alt="" className="director-hero-img absolute inset-0 w-full h-full object-cover" style={{ objectPosition: 'top center' }} />
+         <img src={DIRECTOR_OFFICE} alt="" fetchPriority="high" decoding="async" className="director-hero-img absolute inset-0 w-full h-full object-cover" style={{ objectPosition: 'top center' }} />
          <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-transparent" />
          
          <div className="relative max-w-[1400px] mx-auto px-6 lg:px-16 py-8 md:py-10 lg:py-12">

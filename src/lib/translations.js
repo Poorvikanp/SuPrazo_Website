@@ -42,6 +42,9 @@ export const translations = {
     'hero.subtitle': 'Driving technology, innovation, research, products and community impact.',
     'hero.exploreEcosystem': 'Explore Ecosystem',
     'hero.exploreProducts': 'Explore Products',
+    'hero.aiTitle': 'Building the Future with AI',
+    'hero.aiSubtitle': 'At Suprazo Technologies, our engineers, researchers, and innovators build intelligent AI products that empower businesses, students, and communities.',
+    'hero.joinOurTeam': 'Join Our Team',
 
     // About Preview
     'aboutPreview.label': 'About SuPrazo',
@@ -574,6 +577,9 @@ export const translations = {
     'hero.subtitle': 'तकनीक, नवाचार, अनुसंधान, उत्पाद और समुदाय प्रभाव को आगे बढ़ाना।',
     'hero.exploreEcosystem': 'पारिस्थितिकी तंत्र देखें',
     'hero.exploreProducts': 'उत्पाद देखें',
+    'hero.aiTitle': 'एआई के साथ भविष्य का निर्माण',
+    'hero.aiSubtitle': 'SuPrazo Technologies में, हमारे इंजीनियर, शोधकर्ता और नवाचारकर्ता ऐसे बुद्धिमान AI उत्पाद बनाते हैं जो व्यवसायों, छात्रों और समुदायों को सशक्त बनाते हैं।',
+    'hero.joinOurTeam': 'हमारी टीम में शामिल हों',
 
     // About Preview
     'aboutPreview.label': 'SuPrazo के बारे में',

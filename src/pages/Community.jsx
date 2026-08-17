@@ -9,6 +9,7 @@ import { useLang } from "@/lib/LanguageContext";
 
 const TEAM_IMG = "/images/community-hackathon.png";
 const SUPRATHON_HACK_VIDEO = "/videos/Suprathon_Hack.mp4";
+const SUPRATHON_POSTER = "/images/Suprathon_h.png";
 const SUPRATHON_H_IMG = "/images/Suprathon_h.png";
 
 export default function Community() {
@@ -25,17 +26,23 @@ export default function Community() {
     <div data-aos="fade-up">
       {/* Hero */}
       <section className="relative h-[48vh] sm:h-[56vh] md:h-[60vh] lg:h-[64vh] md:min-h-[520px] w-full overflow-hidden bg-black">
-        <motion.video
-          src={SUPRATHON_HACK_VIDEO}
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="community-hero-video absolute inset-0 w-full h-full object-cover"
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-        />
+          className="absolute inset-0"
+        >
+          <video
+            src={SUPRATHON_HACK_VIDEO}
+            preload="metadata"
+            poster={SUPRATHON_POSTER}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="community-hero-video absolute inset-0 w-full h-full object-cover"
+          />
+        </motion.div>
       </section>
 
       <style>{`

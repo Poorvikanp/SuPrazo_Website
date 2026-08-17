@@ -1,5 +1,6 @@
 const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
 
+import { useLang } from "@/lib/LanguageContext";
 import React from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
@@ -17,13 +18,14 @@ const HERO_SLIDES = [
 ];
 
 const HERO_CONTENT = [
-  { label: "SuPrazo Technologies", title: "Building Tomorrow's Enterprise", subtitle: "Driving technology, innovation, research, products and community impact.", exploreEcosystem: "Explore Ecosystem", exploreProducts: "Explore Products" },
-  { label: "SuPrazo Technologies", title: "Building Tomorrow's Enterprise", subtitle: "Driving technology, innovation, research, products and community impact.", exploreEcosystem: "Explore Ecosystem", exploreProducts: "Explore Products" },
-  { label: "SuPrazo Technologies", title: "Building Tomorrow's Enterprise", subtitle: "Driving technology, innovation, research, products and community impact.", exploreEcosystem: "Explore Ecosystem", exploreProducts: "Explore Products" },
-  { label: "SuPrazo Technologies", title: "Building the Future with AI", subtitle: "At Suprazo Technologies, our engineers, researchers, and innovators build intelligent AI products that empower businesses, students, and communities.", exploreEcosystem: "Explore Products", exploreProducts: "Join Our Team" },
+  { labelKey: "hero.label", titleKey: "hero.title", subtitleKey: "hero.subtitle", exploreEcosystemKey: "hero.exploreEcosystem", exploreProductsKey: "hero.exploreProducts" },
+  { labelKey: "hero.label", titleKey: "hero.title", subtitleKey: "hero.subtitle", exploreEcosystemKey: "hero.exploreEcosystem", exploreProductsKey: "hero.exploreProducts" },
+  { labelKey: "hero.label", titleKey: "hero.title", subtitleKey: "hero.subtitle", exploreEcosystemKey: "hero.exploreEcosystem", exploreProductsKey: "hero.exploreProducts" },
+  { labelKey: "hero.label", titleKey: "hero.aiTitle", subtitleKey: "hero.aiSubtitle", exploreEcosystemKey: "hero.exploreProducts", exploreProductsKey: "hero.joinOurTeam" },
 ];
 
 export default function HeroSection() {
+  const { t } = useLang();
   const [activeSlide, setActiveSlide] = React.useState(0);
   const loadedSlidesRef = React.useRef(new Set([0]));
   const [, forceUpdate] = React.useState(0);
@@ -64,6 +66,11 @@ export default function HeroSection() {
   }, []);
 
   const content = HERO_CONTENT[activeSlide];
+  const label = t(content.labelKey);
+  const title = t(content.titleKey);
+  const subtitle = t(content.subtitleKey);
+  const exploreEcosystem = t(content.exploreEcosystemKey);
+  const exploreProducts = t(content.exploreProductsKey);
 
   return (
     <section className="relative h-[48vh] sm:h-[56vh] md:h-[60vh] lg:h-[64vh] md:min-h-[520px] w-full overflow-hidden">
@@ -90,27 +97,27 @@ export default function HeroSection() {
 
       <div className="absolute inset-0" style={{ background: "linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.20))" }} />
 
-      <div className="relative z-10 h-full max-w-[1400px] mx-auto px-6 lg:px-16 flex items-center py-6 sm:py-8 lg:py-10">
+      <div className="relative z-10 h-full max-w-[1400px] mx-0 lg:mx-auto px-6 lg:px-16 flex items-center py-6 sm:py-8 lg:py-10">
          <motion.div
            initial={{ opacity: 0, y: 40 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.9, ease: "easeOut", delay: 0.4 }}
-           className="w-full sm:w-[80%] md:w-[70%] lg:w-[50%] xl:w-[30%] bg-gradient-to-r from-black/30 via-black/20 to-transparent p-6 sm:p-8 md:p-10 lg:p-12 rounded-sm"
+           className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[50%] xl:w-[30%] bg-gradient-to-r from-black/30 via-black/20 to-transparent p-6 sm:p-8 md:p-10 lg:p-12 rounded-sm"
          >
-           <span className="text-gold text-[10px] sm:text-[11px] font-semibold tracking-[0.3em] uppercase block mb-2 sm:mb-3">
-             {content.label}
-           </span>
-           <h1 className="font-display text-base sm:text-lg md:text-xl lg:text-[1.875rem] font-semibold text-white leading-tight tracking-tight">
-             {content.title}
-           </h1>
-           <p className="mt-3 sm:mt-4 text-white/80 text-xs sm:text-sm leading-relaxed">
-             {content.subtitle}
-           </p>
+            <span className="text-gold text-[10px] sm:text-[11px] font-semibold tracking-[0.3em] uppercase block mb-2 sm:mb-3">
+              {label}
+            </span>
+            <h1 className="font-display text-base sm:text-lg md:text-xl lg:text-[1.875rem] font-semibold text-white leading-snug tracking-tight">
+              {title}
+            </h1>
+            <p className="mt-3 sm:mt-4 text-white/80 text-xs sm:text-sm leading-relaxed">
+              {subtitle}
+            </p>
 
-           <div className="flex flex-wrap gap-2 sm:gap-3 mt-6 sm:mt-8">
-             <PremiumButton to={content.exploreEcosystem === "Explore Products" ? "/products" : "/about"} variant="primary">{content.exploreEcosystem}</PremiumButton>
-             <PremiumButton to={content.exploreProducts === "Join Our Team" ? "/careers" : "/products"} variant="light">{content.exploreProducts}</PremiumButton>
-           </div>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 mt-6 sm:mt-8">
+              <PremiumButton to={content.exploreEcosystemKey === "hero.exploreProducts" ? "/products" : "/about"} variant="primary">{exploreEcosystem}</PremiumButton>
+              <PremiumButton to={content.exploreProductsKey === "hero.joinOurTeam" ? "/careers" : "/products"} variant="light">{exploreProducts}</PremiumButton>
+            </div>
          </motion.div>
       </div>
 

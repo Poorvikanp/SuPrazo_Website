@@ -66,7 +66,7 @@ export default function Navbar() {
       <div className="max-w-[1400px] mx-auto px-3 lg:px-16">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-2 sm:gap-3">
-             <img src={LOGO_URL} alt="SuPrazo Technologies" className="h-[45px] sm:h-[55px] md:h-[70px] lg:h-[90px] w-auto object-contain" />
+              <img src={LOGO_URL} alt="SuPrazo Technologies" fetchPriority="high" decoding="async" className="h-[45px] sm:h-[55px] md:h-[70px] lg:h-[90px] w-auto object-contain" />
            </Link>
 
           <div className="hidden xl:flex items-center gap-7">
