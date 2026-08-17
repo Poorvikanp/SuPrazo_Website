@@ -77,25 +77,25 @@ export default function Foundation() {
       </section>
 
       {/* Women's ED Cell */}
-      <section className="py-16 md:py-24 lg:py-24 bg-alabaster">
+      <section className="py-10 md:py-16 lg:py-16 bg-alabaster">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}               viewport={{ once: false }} transition={{ duration: 0.8 }}>
-              <img src={FOUNDATION2_IMG} alt={t('foundation.edTitle')} className="w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] object-contain rounded-lg" loading="lazy" decoding="async" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.8 }}>
+              <img src={FOUNDATION2_IMG} alt={t('foundation.edTitle')} className="w-full h-[220px] sm:h-[280px] md:h-[320px] lg:h-[340px] object-contain rounded-lg" loading="lazy" decoding="async" />
             </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}               viewport={{ once: false }} transition={{ duration: 0.8, delay: 0.2 }}>
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.8, delay: 0.2 }}>
               <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('foundation.edLabel')}</span>
-              <h2 className="font-display text-3xl md:text-4xl font-semibold text-navy mt-4 leading-tight">{t('foundation.edTitle')}</h2>
-              <div className="gold-line w-16 mt-6 mb-8" />
-<div className="flex flex-col gap-2.5 sm:gap-3">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-3xl font-semibold text-navy mt-3 leading-tight">{t('foundation.edTitle')}</h2>
+              <div className="gold-line w-16 mt-4 mb-5" />
+              <div className="flex flex-col gap-2 sm:gap-2.5">
                   {ED_POINTS.map((point, i) => (
                     <div key={i} data-aos="fade-up" data-aos-delay={i * 100} className="flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-gold mt-2 shrink-0" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 shrink-0" />
                       <div>
-                        <h4 className="text-base font-semibold text-navy mb-1">
+                        <h4 className="text-sm sm:text-base font-semibold text-navy mb-0.5">
                           {point.title}
                         </h4>
-                        <p className="text-navy/60 text-sm leading-relaxed">
+                        <p className="text-navy/60 text-xs sm:text-sm leading-snug">
                           {point.desc}
                         </p>
                       </div>
