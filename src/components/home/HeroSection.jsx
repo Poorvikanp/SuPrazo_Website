@@ -97,12 +97,12 @@ export default function HeroSection() {
 
       <div className="absolute inset-0" style={{ background: "linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.20))" }} />
 
-      <div className="relative z-10 h-full max-w-[1400px] mx-0 lg:mx-auto px-6 lg:px-16 flex items-center py-6 sm:py-8 lg:py-10">
+      <div className="relative z-10 h-full max-w-[1400px] mx-0 lg:mx-auto px-6 lg:px-16 flex items-center justify-start py-6 sm:py-8 lg:py-10">
          <motion.div
            initial={{ opacity: 0, y: 40 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.9, ease: "easeOut", delay: 0.4 }}
-           className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[50%] xl:w-[30%] bg-gradient-to-r from-black/30 via-black/20 to-transparent p-6 sm:p-8 md:p-10 lg:p-12 rounded-sm"
+           className="w-[70%] sm:w-[75%] md:w-[70%] lg:w-[50%] xl:w-[30%] bg-gradient-to-r from-black/30 via-black/20 to-transparent p-6 sm:p-8 md:p-10 lg:p-12 rounded-sm text-left"
          >
             <span className="text-gold text-[10px] sm:text-[11px] font-semibold tracking-[0.3em] uppercase block mb-2 sm:mb-3">
               {label}
@@ -115,8 +115,8 @@ export default function HeroSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 mt-6 sm:mt-8">
-              <PremiumButton to={content.exploreEcosystemKey === "hero.exploreProducts" ? "/products" : "/about"} variant="primary">{exploreEcosystem}</PremiumButton>
-              <PremiumButton to={content.exploreProductsKey === "hero.joinOurTeam" ? "/careers" : "/products"} variant="light">{exploreProducts}</PremiumButton>
+              <PremiumButton to={content.exploreEcosystemKey === "hero.exploreProducts" ? "/products" : "/about"} variant="primary" className="w-full max-w-[200px]">{exploreEcosystem}</PremiumButton>
+              <PremiumButton to={content.exploreProductsKey === "hero.joinOurTeam" ? "/careers" : "/products"} variant="light" className="w-full max-w-[200px]">{exploreProducts}</PremiumButton>
             </div>
          </motion.div>
       </div>
