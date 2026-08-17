@@ -54,6 +54,10 @@ export default function Navbar() {
     const onClick = (e) => {
       if (!e.target.closest('[data-lang-switcher]')) setLangOpen(false);
       if (!e.target.closest('[data-dropdown]')) setOpenDropdown(null);
+      if (!e.target.closest('[data-mobile-menu]') && !e.target.closest('[data-hamburger]')) {
+        setMobileOpen(false);
+        setOpenDropdown(null);
+      }
     };
     document.addEventListener("mousedown", onClick);
     return () => document.removeEventListener("mousedown", onClick);
@@ -168,7 +172,7 @@ export default function Navbar() {
                 )}
               </AnimatePresence>
             </div>
-            <button onClick={() => setMobileOpen(!mobileOpen)} className="text-navy p-1 hover:text-gold transition-colors">
+            <button onClick={() => { setMobileOpen(prev => !prev); setOpenDropdown(null); }} onMouseDown={(e) => e.stopPropagation()} data-hamburger className="text-navy p-1 hover:text-gold transition-colors">
               {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
@@ -177,9 +181,9 @@ export default function Navbar() {
 
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="xl:hidden bg-white border-t border-gray-100 overflow-hidden">
+          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="xl:hidden bg-white border-t border-gray-100 overflow-hidden" data-mobile-menu>
             <div className="px-6 py-6 flex flex-col gap-1">
-              <Link to="/" className="text-sm font-medium tracking-wide uppercase py-3 text-navy border-b border-gray-50">{t('nav.home')}</Link>
+              <Link to="/" onClick={() => { setOpenDropdown(null); setMobileOpen(false); }} className="text-sm font-medium tracking-wide uppercase py-3 text-navy border-b border-gray-50">{t('nav.home')}</Link>
 
               <button type="button" onMouseDown={(e) => e.stopPropagation()} onClick={() => setOpenDropdown(openDropdown === "m-eco" ? null : "m-eco")} className="flex items-center justify-between text-sm font-medium tracking-wide uppercase py-3 text-navy border-b border-gray-50 hover:text-gold transition-colors">
                 {t('nav.ecosystem')} <ChevronDown size={14} className={`transition-transform ${openDropdown === "m-eco" ? "rotate-180" : ""}`} />
@@ -187,7 +191,7 @@ export default function Navbar() {
               {openDropdown === "m-eco" && (
                 <div onMouseDown={(e) => e.stopPropagation()} className="flex flex-col gap-1 pl-4 pb-2">
                   {ECOSYSTEM_ITEMS.map((item) => (
-                    <Link key={item.path} to={item.path} onClick={() => setMobileOpen(false)} className="py-2 text-sm text-navy/70 hover:text-gold">{t(item.nameKey)}</Link>
+                    <Link key={item.path} to={item.path} onClick={() => { setOpenDropdown(null); setMobileOpen(false); }} className="py-2 text-sm text-navy/70 hover:text-gold">{t(item.nameKey)}</Link>
                   ))}
                 </div>
               )}
@@ -206,14 +210,14 @@ export default function Navbar() {
               {openDropdown === "m-prod" && (
                 <div onMouseDown={(e) => e.stopPropagation()} className="flex flex-col gap-1 pl-4 pb-2">
                   {PRODUCT_ITEMS.map((item) => (
-                    <Link key={item.hash} to={`/products#${item.hash}`} onClick={() => setMobileOpen(false)} className="py-2 text-sm text-navy/70 hover:text-gold">{t(item.nameKey)}</Link>
+                    <Link key={item.hash} to={`/products#${item.hash}`} onClick={() => { setOpenDropdown(null); setMobileOpen(false); }} className="py-2 text-sm text-navy/70 hover:text-gold">{t(item.nameKey)}</Link>
                   ))}
                 </div>
               )}
 
-              <Link to="/directors-office" className="text-sm font-medium tracking-wide uppercase py-3 text-navy border-b border-gray-50">{t('nav.directors')}</Link>
-              <Link to="/careers" className="text-sm font-medium tracking-wide uppercase py-3 text-navy border-b border-gray-50">{t('nav.careers')}</Link>
-              <Link to="/contact" className="text-sm font-medium tracking-wide uppercase py-3 text-navy">{t('nav.contact')}</Link>
+              <Link to="/directors-office" onClick={() => { setOpenDropdown(null); setMobileOpen(false); }} className="text-sm font-medium tracking-wide uppercase py-3 text-navy border-b border-gray-50">{t('nav.directors')}</Link>
+              <Link to="/careers" onClick={() => { setOpenDropdown(null); setMobileOpen(false); }} className="text-sm font-medium tracking-wide uppercase py-3 text-navy border-b border-gray-50">{t('nav.careers')}</Link>
+              <Link to="/contact" onClick={() => { setOpenDropdown(null); setMobileOpen(false); }} className="text-sm font-medium tracking-wide uppercase py-3 text-navy">{t('nav.contact')}</Link>
             </div>
           </motion.div>
         )}
