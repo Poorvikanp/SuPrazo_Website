@@ -9,7 +9,7 @@ import OptimizedImage from "@/components/ui/OptimizedImage";
 import hero1 from "../../assets/images/hero1.png";
 import hero2 from "../../assets/images/hero2.png";
 import hero3 from "/images/Hero3.png";
-import hero4 from "/images/Hero4.png";
+import hero4 from "/images/hero4.png";
 
 const HERO_SLIDES = [
   { src: hero1, alt: "SuPrazo Technologies campus", fit: "object-cover" },

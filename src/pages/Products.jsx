@@ -28,6 +28,20 @@ export default function Products() {
     return () => video.removeEventListener("canplay", handleCanPlay);
   }, []);
 
+  React.useEffect(() => {
+    const navbarHeight = 80;
+    const hash = window.location.hash;
+    if (!hash) return;
+    const id = hash.slice(1);
+    const target = document.getElementById(id);
+    if (!target) return;
+    const timer = window.setTimeout(() => {
+      const position = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+      window.scrollTo({ top: position, behavior: "smooth" });
+    }, 150);
+    return () => window.clearTimeout(timer);
+  }, []);
+
   const CORPOOL_FEATURES = [
     { icon: Coins, title: t('products.corpoolF1') },
     { icon: MapPin, title: t('products.corpoolF2') },
