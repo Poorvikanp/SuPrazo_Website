@@ -54,7 +54,7 @@ export default function Products() {
       </section>
 
       {/* CorPool — image left, text right */}
-      <section id="corpool" className="py-12 md:py-16 lg:py-28 bg-white scroll-mt-20">
+      <section id="corpool" className="py-8 md:py-12 lg:py-16 bg-white scroll-mt-20">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }}               viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8 }} className="hover:scale-[1.02] transition-transform duration-500">
@@ -82,7 +82,7 @@ export default function Products() {
               </div>
             </motion.div>
           </div>
-           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 bg-alabaster rounded-lg p-4 sm:p-6 lg:p-8 mt-10 md:mt-12">
+           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 bg-alabaster rounded-lg p-4 sm:p-6 lg:p-8 mt-6 md:mt-8">
             {CORPOOL_STATS.map((s, i) => (
               <div key={i} data-aos="fade-up" data-aos-delay={i * 100} className="text-center">
                 <div className="text-2xl lg:text-3xl font-bold text-gold"><CountUp end={s.value} prefix={s.prefix} suffix={s.suffix} /></div>
