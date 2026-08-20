@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import CountUp from "@/components/shared/CountUp";
 import { useLang } from "@/lib/LanguageContext";
 import PremiumButton from "@/components/shared/PremiumButton";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const ABOUT_IMG = "/images/Team_Home.png";
 
@@ -21,7 +22,7 @@ export default function AboutPreview() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-14 items-center">
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8 }}>
              <div className="overflow-hidden rounded-lg aspect-[4/3]">
-               <img src={ABOUT_IMG} alt="SuPrazo Technologies" className="w-full h-full object-contain rounded-lg" loading="lazy" decoding="async" />
+                <OptimizedImage src={ABOUT_IMG} alt="SuPrazo Technologies" className="w-full h-full object-contain rounded-lg" loading="lazy" decoding="async" />
              </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.2 }}>

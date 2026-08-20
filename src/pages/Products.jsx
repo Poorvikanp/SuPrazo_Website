@@ -6,14 +6,27 @@ import { Route, ShieldCheck, Coins, MapPin, Mic, Brain, Target, Clock, UserCheck
 import PremiumButton from "@/components/shared/PremiumButton";
 import CountUp from "@/components/shared/CountUp";
 import { useLang } from "@/lib/LanguageContext";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const HERO_VIDEO = "/videos/products.mp4";
+const HERO_POSTER = "/images/optimized/products-poster.webp";
 const CORPOOL_IMG = "/images/CorPool-product.png";
 const INTERVIEW_IMG = "/images/HireMe-product.jpg";
 const MOCKPREP_IMG = "/images/Mockai-product.png";
 
 export default function Products() {
   const { t } = useLang();
+
+  const [videoReady, setVideoReady] = React.useState(false);
+  const videoRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const handleCanPlay = () => setVideoReady(true);
+    video.addEventListener("canplay", handleCanPlay);
+    return () => video.removeEventListener("canplay", handleCanPlay);
+  }, []);
 
   const CORPOOL_FEATURES = [
     { icon: Coins, title: t('products.corpoolF1') },
@@ -49,7 +62,18 @@ export default function Products() {
     <div data-aos="fade-up">
       {/* Hero */}
       <section className="relative h-[48vh] sm:h-[56vh] md:h-[60vh] lg:h-[64vh] min-h-[520px]">
-        <video src={HERO_VIDEO} preload="auto" autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover object-center" fetchPriority="high" />
+        <img src={HERO_POSTER} alt="" className="absolute inset-0 w-full h-full object-cover object-center" />
+        <video
+          ref={videoRef}
+          src={HERO_VIDEO}
+          preload="metadata"
+          poster={HERO_POSTER}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-500 ${videoReady ? "opacity-100" : "opacity-0"}`}
+        />
         <div className="absolute inset-0 bg-black/10" />
       </section>
 
@@ -59,7 +83,7 @@ export default function Products() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }}               viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8 }} className="hover:scale-[1.02] transition-transform duration-500">
                <div className="overflow-hidden rounded-lg premium-shadow">
-                 <img src={CORPOOL_IMG} alt={t('product.corpool')} className="w-full h-auto object-cover max-h-[280px] sm:max-h-[320px] md:max-h-[360px]" loading="lazy" decoding="async" />
+                  <OptimizedImage src={CORPOOL_IMG} alt={t('product.corpool')} className="w-full h-auto object-cover max-h-[280px] sm:max-h-[320px] md:max-h-[360px]" loading="lazy" decoding="async" />
                </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }}               viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.2 }}>
@@ -114,7 +138,7 @@ export default function Products() {
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }}               viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.2 }} className="order-1 lg:order-2 hover:scale-[1.02] transition-transform duration-500">
                <div className="overflow-hidden rounded-lg premium-shadow">
-                 <img src={INTERVIEW_IMG} alt={t('product.interviewai')} className="w-full h-auto object-cover max-h-[280px] sm:max-h-[320px] md:max-h-[360px]" loading="lazy" decoding="async" />
+                  <OptimizedImage src={INTERVIEW_IMG} alt={t('product.interviewai')} className="w-full h-auto object-cover max-h-[280px] sm:max-h-[320px] md:max-h-[360px]" loading="lazy" decoding="async" />
                </div>
             </motion.div>
           </div>
@@ -127,7 +151,7 @@ export default function Products() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }}               viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8 }} className="hover:scale-[1.02] transition-transform duration-500">
                <div className="overflow-hidden rounded-lg premium-shadow">
-                 <img src={MOCKPREP_IMG} alt={t('product.mockprep')} className="w-full h-auto object-cover max-h-[280px] sm:max-h-[320px] md:max-h-[360px]" loading="lazy" decoding="async" />
+                  <OptimizedImage src={MOCKPREP_IMG} alt={t('product.mockprep')} className="w-full h-auto object-cover max-h-[280px] sm:max-h-[320px] md:max-h-[360px]" loading="lazy" decoding="async" />
                </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }}               viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.2 }}>
