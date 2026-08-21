@@ -4,11 +4,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Target, Eye } from "lucide-react";
 import { useLang } from "@/lib/LanguageContext";
-import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const TEAM_IMG = "/images/Suprazo_Team discussing.png";
+const HERO_IMG = "/images/campus-pool.png";
 const HERO_VIDEO = "/videos/suprazo_technology.mp4";
-const HERO_POSTER = "/images/optimized/suprazo_technology-poster.webp";
+const HERO_POSTER = "/images/suprazo_technology_poster.png";
 
 export default function About() {
   const { t } = useLang();
@@ -41,7 +41,7 @@ export default function About() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.8 }}>
-              <OptimizedImage src={TEAM_IMG} alt="SuPrazo Team" className="w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] object-cover rounded-lg" loading="lazy" decoding="async" />
+              <img src={TEAM_IMG} alt="SuPrazo Team" className="w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] object-cover rounded-lg" loading="lazy" decoding="async" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.8, delay: 0.2 }}>
               <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('about.overviewLabel')}</span>

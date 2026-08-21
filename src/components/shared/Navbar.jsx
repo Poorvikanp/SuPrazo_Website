@@ -5,7 +5,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, Globe, Brain, ArrowRight, Route, Mic } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLang } from "@/lib/LanguageContext";
-import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const LOGO_URL = "/images/suprazo-logo.png";
 
@@ -80,7 +79,7 @@ export default function Navbar() {
       <div className="max-w-[1400px] mx-auto px-3 lg:px-16">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-2 sm:gap-3">
-              <OptimizedImage src={LOGO_URL} alt="SuPrazo Technologies" fetchPriority="high" decoding="async" className="h-[45px] sm:h-[55px] md:h-[70px] lg:h-[90px] w-auto object-contain" />
+              <img src={LOGO_URL} alt="SuPrazo Technologies" fetchPriority="high" decoding="async" className="h-[45px] sm:h-[55px] md:h-[70px] lg:h-[90px] w-auto object-contain" />
            </Link>
 
           <div className="hidden xl:flex items-center gap-7">

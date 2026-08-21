@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { Heart, BookOpen, Lightbulb } from "lucide-react";
 import { useLang } from "@/lib/LanguageContext";
 import PremiumButton from "@/components/shared/PremiumButton";
-import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const FOUNDATION_PREVIEW_IMG = "/images/foundation-hub.png";
 
@@ -22,7 +21,7 @@ export default function FoundationPreview() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-14 items-center">
                     <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8 }} className="md:order-1">
-              <div className="overflow-hidden rounded-lg">              <OptimizedImage src={FOUNDATION_PREVIEW_IMG} alt="SuFalPra Foundation" className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-cover" loading="lazy" decoding="async" /></div>
+              <div className="overflow-hidden rounded-lg"><img src={FOUNDATION_PREVIEW_IMG} alt="SuFalPra Foundation" className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-cover" loading="lazy" decoding="async" /></div>
             </motion.div>
            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.2 }} className="md:order-2">
             <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('foundationPreview.label')}</span>

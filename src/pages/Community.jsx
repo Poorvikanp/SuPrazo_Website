@@ -6,12 +6,11 @@ import SectionHeading from "@/components/shared/SectionHeading";
 import CountUp from "@/components/shared/CountUp";
 import { Target, Building, Landmark, Handshake } from "lucide-react";
 import { useLang } from "@/lib/LanguageContext";
-import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const TEAM_IMG = "/images/community-hackathon.png";
 const SUPRATHON_HACK_VIDEO = "/videos/Suprathon_Hack.mp4";
-const SUPRATHON_POSTER = "/images/optimized/Suprathon_Hack-poster.webp";
-const SUPRATHON_H_IMG = "/images/optimized/Suprathon_h.png";
+const SUPRATHON_POSTER = "/images/Suprathon_h.png";
+const SUPRATHON_H_IMG = "/images/Suprathon_h.png";
 
 export default function Community() {
   const { t } = useLang();
@@ -68,7 +67,7 @@ export default function Community() {
               transition={{ duration: 0.8 }}
               className="overflow-hidden rounded-lg aspect-[4/3]"
             >
-              <OptimizedImage src={TEAM_IMG} alt="SuPrathon Community" className="w-full h-full object-cover" loading="lazy" decoding="async" />
+              <img src={SUPRATHON_H_IMG} alt="SuPrathon" className="w-full h-full object-contain" loading="lazy" decoding="async" />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 30 }}

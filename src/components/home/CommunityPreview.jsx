@@ -6,7 +6,6 @@ import { Trophy, Users, Globe } from "lucide-react";
 import CountUp from "@/components/shared/CountUp";
 import { useLang } from "@/lib/LanguageContext";
 import PremiumButton from "@/components/shared/PremiumButton";
-import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const COMMUNITY_IMG = "/images/community-hackathon.png";
 
@@ -29,7 +28,7 @@ export default function CommunityPreview() {
             <PremiumButton to="/community" variant="ghost">{t('communityPreview.explore')}</PremiumButton>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.2 }} className="order-1 md:order-2">
-            <div className="overflow-hidden rounded-lg">             <OptimizedImage src={COMMUNITY_IMG} alt="SuPrathon Community" className="w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] object-cover" loading="lazy" decoding="async" /></div>
+            <div className="overflow-hidden rounded-lg"><img src={COMMUNITY_IMG} alt="SuPrathon Community" className="w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] object-cover" loading="lazy" decoding="async" /></div>
           </motion.div>
         </div>
       </div>

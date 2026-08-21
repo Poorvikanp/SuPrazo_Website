@@ -11,28 +11,6 @@ const getHashId = (hash) => {
   }
 };
 
-const getNavbarOffset = () => {
-  const navbar = document.querySelector("nav");
-  if (!navbar) return 80;
-  const rect = navbar.getBoundingClientRect();
-  return rect.bottom || 80;
-};
-
-const scrollToHash = (hash, behavior = "smooth") => {
-  const id = getHashId(hash);
-  if (!id) return;
-  const target = document.getElementById(id);
-  if (!target) return;
-
-  const navbarHeight = getNavbarOffset();
-  const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-
-  window.scrollTo({
-    top: targetPosition,
-    behavior,
-  });
-};
-
 export default function ScrollToTop() {
   const { pathname, hash } = useLocation();
   const navigationType = useNavigationType();
@@ -41,9 +19,10 @@ export default function ScrollToTop() {
     if (navigationType === "POP") return;
 
     if (hash) {
+      const id = getHashId(hash);
       const timer = window.setTimeout(() => {
-        scrollToHash(hash, "smooth");
-      }, 100);
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 50);
       return () => window.clearTimeout(timer);
     }
 

@@ -6,7 +6,6 @@ import { UserPlus, ClipboardCheck, ShieldCheck, MessageSquare, CheckCircle, Arro
 import SectionHeading from "@/components/shared/SectionHeading";
 import { useLang } from "@/lib/LanguageContext";
 import { buildMailtoLink } from "@/lib/utils";
-import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const FOUNDATION_IMG = "/images/Foundation1.png";
 const FOUNDATION2_IMG = "/images/Sufalpra_presentation.png";
@@ -37,7 +36,7 @@ export default function Foundation() {
     <div data-aos="fade-up">
       {/* Hero */}
       <section className="relative h-[45vh] sm:h-[52vh] md:h-[62vh] min-h-[300px] sm:min-h-[360px] md:min-h-[530px] w-full">
-        <OptimizedImage src={FOUNDATION_IMG} alt={t('foundation.heroTitle')} className="foundation-hero-img" fetchPriority="high" decoding="async" />
+        <img src={FOUNDATION_IMG} alt={t('foundation.heroTitle')} className="foundation-hero-img absolute inset-0 w-full h-full object-cover" fetchPriority="high" decoding="async" />
         <div className="absolute inset-0 bg-gradient-to-t from-white/15 via-white/10 to-white/5" />
         <div className="relative z-10 h-full max-w-[1400px] mx-auto px-6 lg:px-16 flex items-start pt-8 lg:pt-12">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -70,7 +69,7 @@ export default function Foundation() {
             </div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.8 }} className="flex items-center justify-center">
               <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-6">
-                 <OptimizedImage src={SUFALPRA_ART} alt="SuFalPra Foundation" className="w-full h-auto max-h-[480px] sm:max-h-[520px] object-contain mx-auto" style={{ filter: "brightness(1.05) contrast(0.95)" }} loading="lazy" decoding="async" />
+                <img src={SUFALPRA_ART} alt="SuFalPra Foundation" className="w-full h-auto max-h-[480px] sm:max-h-[520px] object-contain mx-auto" style={{ filter: "brightness(1.05) contrast(0.95)" }} loading="lazy" decoding="async" />
               </div>
             </motion.div>
           </div>
@@ -82,7 +81,7 @@ export default function Foundation() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.8 }}>
-              <OptimizedImage src={FOUNDATION2_IMG} alt={t('foundation.edTitle')} className="w-full h-[220px] sm:h-[280px] md:h-[320px] lg:h-[340px] object-contain rounded-lg" loading="lazy" decoding="async" />
+              <img src={FOUNDATION2_IMG} alt={t('foundation.edTitle')} className="w-full h-[220px] sm:h-[280px] md:h-[320px] lg:h-[340px] object-contain rounded-lg" loading="lazy" decoding="async" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.8, delay: 0.2 }}>
               <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('foundation.edLabel')}</span>

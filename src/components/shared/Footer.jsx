@@ -4,7 +4,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Linkedin, Instagram } from "lucide-react";
 import { useLang } from "@/lib/LanguageContext";
-import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const LOGO_URL = "/images/suprazo-logo.png";
 
@@ -39,7 +38,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-16">
           {/* Column 1: Brand */}
           <div className="sm:col-span-2 lg:col-span-1 text-center sm:text-left">
-             <OptimizedImage src={LOGO_URL} alt="SuPrazo Technologies" className="h-10 sm:h-12 w-auto object-contain brightness-0 invert mb-4 sm:mb-6 mx-auto sm:mx-0" loading="lazy" decoding="async" />
+             <img src={LOGO_URL} alt="SuPrazo Technologies" className="h-10 sm:h-12 w-auto object-contain brightness-0 invert mb-4 sm:mb-6 mx-auto sm:mx-0" loading="lazy" decoding="async" />
              <p className="text-white/60 text-sm leading-relaxed mb-6 sm:mb-8">
                {t('footer.desc')}
              </p>
@@ -119,13 +118,13 @@ export default function Footer() {
         {/* Make in India Branding Section */}
         <div className="mt-16 pt-8 border-t border-white/10 text-center">
           <div className="flex flex-col items-center gap-6">
-             <OptimizedImage
-               src="/images/make-in-India-logo.jpg"
-               alt="Make in India"
-               className="w-36 h-auto object-contain mb-4"
-               loading="lazy"
-               decoding="async"
-             />
+            <img
+              src="/images/make-in-India-logo.jpg"
+              alt="Make in India"
+              className="w-36 h-auto object-contain mb-4"
+              loading="lazy"
+              decoding="async"
+            />
 
             <div className="space-y-2">
               <h3 className="text-white/90 text-lg font-light tracking-wide">

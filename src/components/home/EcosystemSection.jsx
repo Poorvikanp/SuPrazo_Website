@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import SectionHeading from "@/components/shared/SectionHeading";
 import { useLang } from "@/lib/LanguageContext";
-import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const HERO_IMG = "/images/suprazo_discussion.png";
 const SUPRATHON_IMG = "/images/Suprathon_home.png";
@@ -28,7 +27,7 @@ export default function EcosystemSection() {
           {PILLARS.map((pillar, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-60px" }} transition={{ duration: 0.7, delay: i * 0.15 }}>
               <Link to={pillar.link} className="group block bg-white rounded-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
-                <div className="overflow-hidden h-64">                 <OptimizedImage src={pillar.img} alt={pillar.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" /></div>
+                <div className="overflow-hidden h-64"><img src={pillar.img} alt={pillar.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" /></div>
                 <div className="p-8">
                   <div className="gold-line w-0 group-hover:w-full transition-all duration-500 mb-5" />
                   <h3 className="text-xl font-semibold text-navy mb-3">{pillar.title}</h3>

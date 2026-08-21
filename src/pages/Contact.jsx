@@ -7,7 +7,6 @@ import { useToast } from "@/components/ui/use-toast";
 import { Mail, MapPin, CheckCircle, ArrowRight, MessageCircle, Instagram, Linkedin } from "lucide-react";
 import { buildMailtoLink } from "@/lib/utils";
 import { useLang } from "@/lib/LanguageContext";
-import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const SUPRAZO_ART = "/images/suprazo.jpg";
 
@@ -97,7 +96,7 @@ ${form.full_name}`;
        {/* Hero */}
       <section className="relative bg-alabaster py-20 md:py-28 lg:py-40">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <OptimizedImage src={SUPRAZO_ART} alt="SUPRAZO" className="w-full max-w-5xl mx-auto opacity-20" loading="lazy" decoding="async" />
+          <img src={SUPRAZO_ART} alt="SUPRAZO" className="w-full max-w-5xl mx-auto opacity-20" loading="lazy" decoding="async" />
         </div>
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-16">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
