@@ -2,6 +2,7 @@ const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me
 
 import React from "react";
 import { motion } from "framer-motion";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const WEBUILD_ART = "/images/we-build-art.png";
 
@@ -15,7 +16,7 @@ export default function TypographyArt() {
         transition={{ duration: 0.9, ease: "easeOut" }}
         className="max-w-[1400px] mx-auto px-6 lg:px-16 flex flex-col items-center"
       >
-        <img
+        <OptimizedImage
           src={WEBUILD_ART}
           alt="WE BUILD — Tomorrow's Enterprise"
           className="w-[75%] md:w-[55%] lg:w-[40%] h-auto object-contain"

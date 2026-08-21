@@ -7,6 +7,7 @@ import SectionHeading from "@/components/shared/SectionHeading";
 import ApplicationProcess from "@/components/shared/ApplicationProcess";
 import { ArrowRight, MapPin, Briefcase, Zap, Users, Layers } from "lucide-react";
 import { useLang } from "@/lib/LanguageContext";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const CAREER_HERO = "/images/Career_Hero.png";
 
@@ -30,7 +31,7 @@ export default function Careers() {
     <div data-aos="fade-up" className="m-0 p-0">
       {/* Hero */}
       <section className="relative h-[75vh] sm:h-[80vh] md:h-[85vh] min-h-[500px]">
-         <img src={CAREER_HERO} alt={t('careers.heroTitle')} className="absolute inset-0 w-full h-full object-cover object-position-[center_30%] md:object-position-[50%_75%] lg:object-position-[50%_75%]" fetchPriority="high" decoding="async" />
+         <OptimizedImage src={CAREER_HERO} alt={t('careers.heroTitle')} className="absolute inset-0 w-full h-full object-cover object-position-[center_30%] md:object-position-[50%_75%] lg:object-position-[50%_75%]" fetchPriority="high" decoding="async" />
          <div className="absolute left-0 top-0 bottom-0 w-[40%]" style={{ background: 'linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 30%, rgba(0,0,0,0.08) 55%, rgba(0,0,0,0) 75%)' }} />
            <div className="absolute left-0 top-0 z-10 pt-[40px] sm:pt-[50px] md:pt-[60px] lg:pt-[70px] pl-[40px] sm:pl-[50px] md:pl-[60px] lg:pl-[70px]">
               <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>

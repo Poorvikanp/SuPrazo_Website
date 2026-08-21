@@ -1,14 +1,11 @@
-
 import react from '@vitejs/plugin-react'
 import base44 from '@base44/vite-plugin'
+import imagemin from 'vite-plugin-imagemin'
 import { defineConfig } from 'vite'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     base44({
-      // Support for legacy code that imports the base44 SDK with @/integrations, @/entities, etc.
-      // can be removed if the code has been updated to use the new SDK imports from @base44/sdk
       legacySDKImports: process.env.BASE44_LEGACY_SDK_IMPORTS === 'true',
       hmrNotifier: true,
       navigationNotifier: true,
@@ -16,5 +13,11 @@ export default defineConfig({
       visualEditAgent: true
     }),
     react(),
+    imagemin({
+      gifsicle: { optimizationLevel: 3 },
+      mozjpeg: { quality: 80 },
+      pngquant: { quality: [0.8, 0.9] },
+      svgo: { plugins: [{ name: 'removeViewBox', active: false }] },
+    }),
   ]
 });

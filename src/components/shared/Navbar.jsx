@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, Globe, Brain, ArrowRight, Route, Mic } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLang } from "@/lib/LanguageContext";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const LOGO_URL = "/images/suprazo-logo.png";
 
@@ -43,6 +44,7 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
 
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
@@ -50,6 +52,14 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => { setMobileOpen(false); setOpenDropdown(null); }, [location.pathname]);
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
   useEffect(() => {
     const onClick = (e) => {
       if (!e.target.closest('[data-lang-switcher]')) setLangOpen(false);
@@ -70,7 +80,7 @@ export default function Navbar() {
       <div className="max-w-[1400px] mx-auto px-3 lg:px-16">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-2 sm:gap-3">
-              <img src={LOGO_URL} alt="SuPrazo Technologies" fetchPriority="high" decoding="async" className="h-[45px] sm:h-[55px] md:h-[70px] lg:h-[90px] w-auto object-contain" />
+              <OptimizedImage src={LOGO_URL} alt="SuPrazo Technologies" fetchPriority="high" decoding="async" className="h-[45px] sm:h-[55px] md:h-[70px] lg:h-[90px] w-auto object-contain" />
            </Link>
 
           <div className="hidden xl:flex items-center gap-7">
@@ -179,10 +189,11 @@ export default function Navbar() {
         </div>
       </div>
 
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="xl:hidden bg-white border-t border-gray-100 overflow-hidden" data-mobile-menu>
-            <div className="px-6 py-6 flex flex-col gap-1">
+      <div
+        className={`xl:hidden bg-white border-t border-gray-100 overflow-hidden transition-all duration-300 ease-in-out ${mobileOpen ? 'max-h-[800px] opacity-100 pointer-events-auto' : 'max-h-0 opacity-0 pointer-events-none'}`}
+        data-mobile-menu
+      >
+        <div className="px-6 py-6 flex flex-col gap-1">
               <Link to="/" onClick={() => { setOpenDropdown(null); setMobileOpen(false); }} className="text-sm font-medium tracking-wide uppercase py-3 text-navy border-b border-gray-50">{t('nav.home')}</Link>
 
               <button type="button" onMouseDown={(e) => e.stopPropagation()} onClick={() => setOpenDropdown(openDropdown === "m-eco" ? null : "m-eco")} className="flex items-center justify-between text-sm font-medium tracking-wide uppercase py-3 text-navy border-b border-gray-50 hover:text-gold transition-colors">
@@ -199,6 +210,7 @@ export default function Navbar() {
               <button type="button" onMouseDown={(e) => e.stopPropagation()} onClick={() => {
                 if (openDropdown === "m-prod") {
                   setOpenDropdown(null);
+                  setMobileOpen(false);
                   window.scrollTo({ top: 0, behavior: "smooth" });
                   if (location.pathname !== "/products") navigate("/products");
                 } else {
@@ -219,9 +231,7 @@ export default function Navbar() {
               <Link to="/careers" onClick={() => { setOpenDropdown(null); setMobileOpen(false); }} className="text-sm font-medium tracking-wide uppercase py-3 text-navy border-b border-gray-50">{t('nav.careers')}</Link>
               <Link to="/contact" onClick={() => { setOpenDropdown(null); setMobileOpen(false); }} className="text-sm font-medium tracking-wide uppercase py-3 text-navy">{t('nav.contact')}</Link>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
     </nav>
   );
 }

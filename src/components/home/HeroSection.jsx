@@ -5,6 +5,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import PremiumButton from "@/components/shared/PremiumButton";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 import hero1 from "../../assets/images/hero1.png";
 import hero2 from "../../assets/images/hero2.png";
 import hero3 from "/images/Hero3.png";
@@ -81,17 +82,23 @@ export default function HeroSection() {
         transition={{ duration: 1.2, ease: "easeOut" }}
       >
         {HERO_SLIDES.map((slide, index) => (
-          <motion.img
+          <motion.div
             key={index}
-            src={loadedSlidesRef.current.has(index) ? slide.src : undefined}
-            alt={slide.alt}
-            className={`absolute inset-0 w-full h-full ${slide.fit} hero-slide-img transition-opacity duration-1000 ease-in-out`}
             initial={{ scale: index === 0 ? 1.08 : 1 }}
             animate={{ opacity: activeSlide === index ? 1 : 0, scale: activeSlide === index ? 1 : 1.03 }}
             transition={{ opacity: { duration: 1, ease: "easeInOut" }, scale: { duration: 8, ease: "easeOut" } }}
-            fetchPriority={activeSlide === index ? "high" : "auto"}
-            style={{ filter: "brightness(1.05) contrast(1.05)" }}
-          />
+            className="absolute inset-0 w-full h-full"
+          >
+            {loadedSlidesRef.current.has(index) && (
+              <OptimizedImage
+                src={slide.src}
+                alt={slide.alt}
+                className={`${slide.fit} hero-slide-img`}
+                fetchPriority={activeSlide === index ? "high" : "auto"}
+                style={{ filter: "brightness(1.05) contrast(1.05)" }}
+              />
+            )}
+          </motion.div>
         ))}
       </motion.div>
 
