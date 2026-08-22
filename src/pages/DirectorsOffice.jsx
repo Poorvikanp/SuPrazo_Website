@@ -79,9 +79,17 @@ export default function DirectorsOffice() {
                className="w-full md:w-[45%] lg:w-[38%] flex flex-col justify-center mt-6 md:mt-8"
             >
               <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">LEADERSHIP</span>
-               <h1 className="font-display text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-navy mt-4 leading-tight">
-                 {t('director.name')}
-               </h1>
+                <h1 className="font-display text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-navy mt-4 leading-tight">
+                  <span className="hidden md:inline">{t('director.name')}</span>
+                  <span className="md:hidden">
+                    {t('director.name').split(' ').map((part, i, arr) => (
+                      <React.Fragment key={i}>
+                        {part}
+                        {i < arr.length - 1 && <br />}
+                      </React.Fragment>
+                    ))}
+                  </span>
+                </h1>
               <div className="gold-line w-16 mt-6 mb-6" />
 
               <div className="flex flex-row gap-4">
@@ -136,7 +144,17 @@ export default function DirectorsOffice() {
               className="lg:col-span-3"
             >
               <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('director.profileLabel')}</span>
-              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mt-4 leading-tight">{t('director.name')}</h2>
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mt-4 leading-tight">
+                <span className="hidden md:inline">{t('director.name')}</span>
+                <span className="md:hidden">
+                  {t('director.name').split(' ').map((part, i, arr) => (
+                    <React.Fragment key={i}>
+                      {part}
+                      {i < arr.length - 1 && <br />}
+                    </React.Fragment>
+                  ))}
+                </span>
+              </h2>
               <p className="text-navy/50 text-sm mt-2 mb-2">{t('director.title1')}</p>
               <div className="gold-line w-16 mb-8" />
 
