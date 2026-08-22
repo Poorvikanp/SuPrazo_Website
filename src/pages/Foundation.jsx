@@ -19,7 +19,6 @@ export default function Foundation() {
     { title: t('foundation.ed2Title'), desc: t('foundation.ed2Desc') },
     { title: t('foundation.ed3Title'), desc: t('foundation.ed3Desc') },
     { title: t('foundation.ed4Title'), desc: t('foundation.ed4Desc') },
-    { title: t('foundation.ed6Title'), desc: t('foundation.ed6Desc') },
   ];
 
   const PROCESS_STEPS = [
