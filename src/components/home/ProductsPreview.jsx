@@ -16,9 +16,9 @@ const MOCKPREP_IMG = mockprepImage;
 export default function ProductsPreview() {
   const { t } = useLang();
   const PRODUCTS = [
-    { name: t('product.corpool'), tagline: t('productsPreview.corpoolTag'), desc: t('productsPreview.corpoolDesc'), link: "/products", image: CORPOOL_IMG },
-    { name: t('product.interviewai'), tagline: t('productsPreview.interviewTag'), desc: t('productsPreview.interviewDesc'), link: "/products", image: HIREME_IMG },
-    { name: t('product.mockprep'), tagline: t('productsPreview.mockprepTag'), desc: t('productsPreview.mockprepDesc'), link: "/products", image: MOCKPREP_IMG },
+    { name: t('product.corpool'), tagline: t('productsPreview.corpoolTag'), desc: t('productsPreview.corpoolDesc'), link: "/products#corpool", image: CORPOOL_IMG },
+    { name: t('product.interviewai'), tagline: t('productsPreview.interviewTag'), desc: t('productsPreview.interviewDesc'), link: "/products#interview-ai", image: HIREME_IMG },
+    { name: t('product.mockprep'), tagline: t('productsPreview.mockprepTag'), desc: t('productsPreview.mockprepDesc'), link: "/products#mockprep", image: MOCKPREP_IMG },
   ];
 
   return (
