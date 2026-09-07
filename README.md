@@ -6,7 +6,7 @@ The website is built as a modern responsive React application with a focus on cl
 
 ---
 
-## 🚀 Features
+## 🚀🚀Features🚀🚀
 
 - 🏢 Company information and ecosystem overview
 - 🤖 Products and product enquiry sections
