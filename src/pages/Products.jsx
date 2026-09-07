@@ -8,9 +8,9 @@ import CountUp from "@/components/shared/CountUp";
 import { useLang } from "@/lib/LanguageContext";
 
 const HERO_VIDEO = "/videos/products.mp4";
-const CORPOOL_IMG = "/images/CorPool-product.png";
-const INTERVIEW_IMG = "/images/HireMe-product.jpg";
-const MOCKPREP_IMG = "/images/Mockai-product.png";
+const CORPOOL_IMG = "/images/optimized/CorPool-product-1920.webp";
+const INTERVIEW_IMG = "/images/optimized/HireMe-product-1920.webp";
+const MOCKPREP_IMG = "/images/optimized/Mockai-product-1920.webp";
 
 export default function Products() {
   const { t } = useLang();

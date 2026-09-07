@@ -8,7 +8,7 @@ import ApplicationProcess from "@/components/shared/ApplicationProcess";
 import { ArrowRight, MapPin, Briefcase, Zap, Users, Layers } from "lucide-react";
 import { useLang } from "@/lib/LanguageContext";
 
-const CAREER_HERO = "/images/Career_Hero.png";
+const CAREER_HERO = "/images/optimized/Career_Hero-1376.webp";
 
 export default function Careers() {
   const { t } = useLang();

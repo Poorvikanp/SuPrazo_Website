@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Target, Eye } from "lucide-react";
 import { useLang } from "@/lib/LanguageContext";
 
-const TEAM_IMG = "/images/Suprazo_Team discussing.png";
+const TEAM_IMG = "/images/optimized/Suprazo_Team discussing-1408.webp";
 const HERO_IMG = "/images/campus-pool.png";
 const HERO_VIDEO = "/videos/suprazo_technology.mp4";
 const HERO_POSTER = "/images/suprazo_technology_poster.png";

@@ -8,8 +8,8 @@ import SectionHeading from "@/components/shared/SectionHeading";
 import { useLang } from "@/lib/LanguageContext";
 
 const HERO_IMG = "/images/suprazo_discussion.png";
-const SUPRATHON_IMG = "/images/Suprathon_home.png";
-const FOUNDATION_IMG = "/images/Sufalpra_home.png";
+const SUPRATHON_IMG = "/images/optimized/Suprathon_home-1408.webp";
+const FOUNDATION_IMG = "/images/optimized/Sufalpra_home-1920.webp";
 
 export default function EcosystemSection() {
   const { t } = useLang();

@@ -5,16 +5,20 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import PremiumButton from "@/components/shared/PremiumButton";
-import hero1 from "../../assets/images/hero1.png";
-import hero2 from "../../assets/images/hero2.png";
-import hero3 from "/images/Hero3.png";
-import hero4 from "/images/hero4.png";
+import hero1 from "../../assets/images/optimized/hero1-1920.webp";
+import hero1Fallback from "../../assets/images/hero1.png";
+import hero2 from "../../assets/images/optimized/hero2-1080.webp";
+import hero2Fallback from "../../assets/images/hero2.png";
+import hero3 from "/images/optimized/Hero3-1376.webp";
+import hero3Fallback from "/images/Hero3.png";
+import hero4 from "/images/optimized/hero4-1408.webp";
+import hero4Fallback from "/images/hero4.png";
 
 const HERO_SLIDES = [
-  { src: hero1, alt: "SuPrazo Technologies campus", fit: "object-cover" },
-  { src: hero2, alt: "SuPrazo enterprise campus", fit: "object-cover" },
-  { src: hero3, alt: "SuPrazo innovation community", fit: "object-cover" },
-  { src: hero4, alt: "SuPrazo engineering culture and AI innovation", fit: "object-cover" },
+  { src: hero1Fallback, srcWebp: hero1, alt: "SuPrazo Technologies campus", fit: "object-cover" },
+  { src: hero2Fallback, srcWebp: hero2, alt: "SuPrazo enterprise campus", fit: "object-cover" },
+  { src: hero3Fallback, srcWebp: hero3, alt: "SuPrazo innovation community", fit: "object-cover" },
+  { src: hero4Fallback, srcWebp: hero4, alt: "SuPrazo engineering culture and AI innovation", fit: "object-cover" },
 ];
 
 const HERO_CONTENT = [
@@ -40,7 +44,7 @@ export default function HeroSection() {
   const preloadSlide = React.useCallback((index) => {
     if (loadedSlidesRef.current.has(index)) return;
     const img = new Image();
-    img.src = HERO_SLIDES[index].src;
+    img.src = HERO_SLIDES[index].srcWebp;
     img.onload = () => markSlideLoaded(index);
     img.onerror = () => markSlideLoaded(index);
   }, [markSlideLoaded]);
@@ -81,17 +85,19 @@ export default function HeroSection() {
         transition={{ duration: 1.2, ease: "easeOut" }}
       >
         {HERO_SLIDES.map((slide, index) => (
-          <motion.img
-            key={index}
-            src={loadedSlidesRef.current.has(index) ? slide.src : undefined}
-            alt={slide.alt}
-            className={`absolute inset-0 w-full h-full ${slide.fit} hero-slide-img transition-opacity duration-1000 ease-in-out`}
-            initial={{ scale: index === 0 ? 1.08 : 1 }}
-            animate={{ opacity: activeSlide === index ? 1 : 0, scale: activeSlide === index ? 1 : 1.03 }}
-            transition={{ opacity: { duration: 1, ease: "easeInOut" }, scale: { duration: 8, ease: "easeOut" } }}
-            fetchPriority={activeSlide === index ? "high" : "auto"}
-            style={{ filter: "brightness(1.05) contrast(1.05)" }}
-          />
+          <picture key={index}>
+            {loadedSlidesRef.current.has(index) && <source srcSet={slide.srcWebp} type="image/webp" />}
+            <motion.img
+              src={loadedSlidesRef.current.has(index) ? slide.src : undefined}
+              alt={slide.alt}
+              className={`absolute inset-0 w-full h-full ${slide.fit} hero-slide-img transition-opacity duration-1000 ease-in-out`}
+              initial={{ scale: index === 0 ? 1.08 : 1 }}
+              animate={{ opacity: activeSlide === index ? 1 : 0, scale: activeSlide === index ? 1 : 1.03 }}
+              transition={{ opacity: { duration: 1, ease: "easeInOut" }, scale: { duration: 8, ease: "easeOut" } }}
+              fetchPriority={activeSlide === index ? "high" : "auto"}
+              style={{ filter: "brightness(1.05) contrast(1.05)" }}
+            />
+          </picture>
         ))}
       </motion.div>
 

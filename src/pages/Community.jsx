@@ -7,10 +7,10 @@ import CountUp from "@/components/shared/CountUp";
 import { Target, Building, Landmark, Handshake } from "lucide-react";
 import { useLang } from "@/lib/LanguageContext";
 
-const TEAM_IMG = "/images/community-hackathon.png";
+const TEAM_IMG = "/images/optimized/community-hackathon-1080.webp";
 const SUPRATHON_HACK_VIDEO = "/videos/Suprathon_Hack.mp4";
-const SUPRATHON_POSTER = "/images/Suprathon_h.png";
-const SUPRATHON_H_IMG = "/images/Suprathon_h.png";
+const SUPRATHON_POSTER = "/images/optimized/Suprathon_h-1920.webp";
+const SUPRATHON_H_IMG = "/images/optimized/Suprathon_h-1920.webp";
 
 export default function Community() {
   const { t } = useLang();

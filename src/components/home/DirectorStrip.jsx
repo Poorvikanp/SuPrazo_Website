@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { useLang } from "@/lib/LanguageContext";
 import { ArrowRight } from "lucide-react";
 
-const DIRECTOR_IMG = "/images/director-portrait.png";
+const DIRECTOR_IMG = "/images/optimized/director-portrait-1920.webp";
 
 export default function DirectorStrip() {
   const { t } = useLang();

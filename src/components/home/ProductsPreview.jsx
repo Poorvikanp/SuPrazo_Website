@@ -5,9 +5,9 @@ import { ArrowRight } from "lucide-react";
 import SectionHeading from "@/components/shared/SectionHeading";
 import { useLang } from "@/lib/LanguageContext";
 
-import hiremeImage from "../../assets/images/hireme.jpg";
-import mockprepImage from "../../assets/images/mockai.jpg";
-import corPoolImage from "../../assets/images/CorPool.png";
+import hiremeImage from "../../assets/images/optimized/hireme-1920.webp";
+import mockprepImage from "../../assets/images/optimized/mockai-1920.webp";
+import corPoolImage from "../../assets/images/optimized/CorPool-1137.webp";
 
 const CORPOOL_IMG = corPoolImage;
 const HIREME_IMG = hiremeImage;

@@ -7,7 +7,7 @@ import CountUp from "@/components/shared/CountUp";
 import { useLang } from "@/lib/LanguageContext";
 import PremiumButton from "@/components/shared/PremiumButton";
 
-const COMMUNITY_IMG = "/images/community-hackathon.png";
+const COMMUNITY_IMG = "/images/optimized/community-hackathon-1080.webp";
 
 export default function CommunityPreview() {
   const { t } = useLang();

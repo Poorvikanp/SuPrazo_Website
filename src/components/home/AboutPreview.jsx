@@ -6,7 +6,7 @@ import CountUp from "@/components/shared/CountUp";
 import { useLang } from "@/lib/LanguageContext";
 import PremiumButton from "@/components/shared/PremiumButton";
 
-const ABOUT_IMG = "/images/Team_Home.png";
+const ABOUT_IMG = "/images/optimized/Team_Home-1024.webp";
 
 export default function AboutPreview() {
   const { t } = useLang();

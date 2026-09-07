@@ -6,7 +6,7 @@ import { Heart, BookOpen, Lightbulb } from "lucide-react";
 import { useLang } from "@/lib/LanguageContext";
 import PremiumButton from "@/components/shared/PremiumButton";
 
-const FOUNDATION_PREVIEW_IMG = "/images/foundation-hub.png";
+const FOUNDATION_PREVIEW_IMG = "/images/optimized/foundation-hub-1920.webp";
 
 export default function FoundationPreview() {
   const { t } = useLang();

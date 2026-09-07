@@ -6,8 +6,8 @@ import { Instagram, Linkedin } from "lucide-react";
 import SectionHeading from "@/components/shared/SectionHeading";
 import { useLang } from "@/lib/LanguageContext";
 
-const DIRECTOR_PORTRAIT = "/images/director-portrait.png";
-const DIRECTOR_OFFICE = "/images/directorimage2.png";
+const DIRECTOR_PORTRAIT = "/images/optimized/director-portrait-1920.webp";
+const DIRECTOR_OFFICE = "/images/optimized/directorimage2-1920.webp";
 
 export default function DirectorsOffice() {
   const { t } = useLang();

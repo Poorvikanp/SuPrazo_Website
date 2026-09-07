@@ -7,8 +7,8 @@ import SectionHeading from "@/components/shared/SectionHeading";
 import { useLang } from "@/lib/LanguageContext";
 import { buildMailtoLink } from "@/lib/utils";
 
-const FOUNDATION_IMG = "/images/Foundation1.png";
-const FOUNDATION2_IMG = "/images/Sufalpra_presentation.png";
+const FOUNDATION_IMG = "/images/optimized/Foundation1-1920.webp";
+const FOUNDATION2_IMG = "/images/optimized/Sufalpra_presentation-1920.webp";
 const SUFALPRA_ART = "/images/sufalpra.png";
 
 export default function Foundation() {
