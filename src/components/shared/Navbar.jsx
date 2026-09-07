@@ -61,11 +61,12 @@ export default function Navbar() {
   }, [mobileOpen]);
   useEffect(() => {
     const onClick = (e) => {
-      if (!e.target.closest('[data-lang-switcher]')) setLangOpen(false);
-      if (!e.target.closest('[data-dropdown]')) setOpenDropdown(null);
-      if (!e.target.closest('[data-mobile-menu]') && !e.target.closest('[data-hamburger]')) {
+      const inMobile = e.target.closest('[data-mobile-menu]');
+      const inHamburger = e.target.closest('[data-hamburger]');
+      if (!inMobile && !inHamburger) {
+        if (!e.target.closest('[data-lang-switcher]')) setLangOpen(false);
+        if (!e.target.closest('[data-dropdown]')) setOpenDropdown(null);
         setMobileOpen(false);
-        setOpenDropdown(null);
       }
     };
     document.addEventListener("mousedown", onClick);
@@ -93,8 +94,8 @@ export default function Navbar() {
               </button>
               <AnimatePresence>
                 {openDropdown === "ecosystem" && (
-                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} transition={{ duration: 0.2 }} className="absolute top-full left-0 pt-3 w-72">
-                    <div className="bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden">
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} transition={{ duration: 0.2 }} className="absolute top-full left-0 w-72">
+                    <div className="bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden mt-3">
                       {ECOSYSTEM_ITEMS.map((item) => (
                         <Link key={item.path} to={item.path} className="group flex items-start gap-3 p-4 hover:bg-alabaster transition-colors border-b border-gray-50 last:border-0">
                           <ArrowRight size={14} className="text-gold mt-1 shrink-0 group-hover:translate-x-1 transition-transform" />
@@ -118,8 +119,8 @@ export default function Navbar() {
               </button>
               <AnimatePresence>
                 {openDropdown === "products" && (
-                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} transition={{ duration: 0.2 }} className="absolute top-full left-0 pt-3 w-72">
-                    <div className="bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden">
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} transition={{ duration: 0.2 }} className="absolute top-full left-0 w-72">
+                    <div className="bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden mt-3">
                       {PRODUCT_ITEMS.map((item) => (
                         <Link key={item.hash} to={`/products#${item.hash}`} className="group flex items-start gap-3 p-4 hover:bg-alabaster transition-colors border-b border-gray-50 last:border-0">
                           <div className="w-9 h-9 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
@@ -149,8 +150,8 @@ export default function Navbar() {
               </button>
               <AnimatePresence>
                 {langOpen && (
-                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} transition={{ duration: 0.2 }} className="absolute top-full right-0 pt-2 w-32">
-                    <div className="bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden">
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} transition={{ duration: 0.2 }} className="absolute top-full right-0 w-32">
+                    <div className="bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden mt-3">
                       {LANGS.map((l) => (
                         <button key={l.code} onClick={() => { setLang(l.code); setLangOpen(false); }} className={`w-full text-left px-4 py-2.5 text-sm font-medium transition-colors ${lang === l.code ? "bg-gold/10 text-gold" : "text-navy hover:bg-alabaster"}`}>
                           {t(l.labelKey)}
@@ -171,8 +172,8 @@ export default function Navbar() {
               </button>
               <AnimatePresence>
                 {langOpen && (
-                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} transition={{ duration: 0.2 }} className="absolute top-full right-0 pt-2 w-32">
-                    <div className="bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden">
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} transition={{ duration: 0.2 }} className="absolute top-full right-0 w-32">
+                    <div className="bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden mt-3">
                       {LANGS.map((l) => (
                         <button key={l.code} onClick={() => { setLang(l.code); setLangOpen(false); }} className={`w-full text-left px-4 py-2.5 text-sm font-medium transition-colors ${lang === l.code ? "bg-gold/10 text-gold" : "text-navy hover:bg-alabaster"}`}>{t(l.labelKey)}</button>
                       ))}
@@ -181,7 +182,7 @@ export default function Navbar() {
                 )}
               </AnimatePresence>
             </div>
-            <button onClick={() => { setMobileOpen(prev => !prev); setOpenDropdown(null); }} onMouseDown={(e) => e.stopPropagation()} data-hamburger className="text-navy p-1 hover:text-gold transition-colors">
+             <button onClick={() => { setMobileOpen(prev => !prev); setOpenDropdown(null); }} data-hamburger className="text-navy p-1 hover:text-gold transition-colors">
               {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
@@ -189,24 +190,24 @@ export default function Navbar() {
       </div>
 
       <div
-        className={`xl:hidden bg-white border-t border-gray-100 overflow-hidden transition-all duration-300 ease-in-out ${mobileOpen ? 'max-h-[800px] opacity-100 pointer-events-auto' : 'max-h-0 opacity-0 pointer-events-none'}`}
+        className={`xl:hidden bg-white border-t border-gray-100 overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out ${mobileOpen ? 'max-h-[800px] opacity-100 pointer-events-auto' : 'max-h-0 opacity-0 pointer-events-none'}`}
         data-mobile-menu
       >
         <div className="px-6 py-6 flex flex-col gap-1">
               <Link to="/" onClick={() => { setOpenDropdown(null); setMobileOpen(false); }} className="text-sm font-medium tracking-wide uppercase py-3 text-navy border-b border-gray-50">{t('nav.home')}</Link>
 
-              <button type="button" onMouseDown={(e) => e.stopPropagation()} onClick={() => setOpenDropdown(openDropdown === "m-eco" ? null : "m-eco")} className="flex items-center justify-between text-sm font-medium tracking-wide uppercase py-3 text-navy border-b border-gray-50 hover:text-gold transition-colors">
+              <button type="button" onClick={() => setOpenDropdown(openDropdown === "m-eco" ? null : "m-eco")} className="flex items-center justify-between text-sm font-medium tracking-wide uppercase py-3 text-navy border-b border-gray-50 hover:text-gold transition-colors">
                 {t('nav.ecosystem')} <ChevronDown size={14} className={`transition-transform ${openDropdown === "m-eco" ? "rotate-180" : ""}`} />
               </button>
               {openDropdown === "m-eco" && (
-                <div onMouseDown={(e) => e.stopPropagation()} className="flex flex-col gap-1 pl-4 pb-2">
+                <div className="flex flex-col gap-1 pl-4 pb-2">
                   {ECOSYSTEM_ITEMS.map((item) => (
                     <Link key={item.path} to={item.path} onClick={() => { setOpenDropdown(null); setMobileOpen(false); }} className="py-2 text-sm text-navy/70 hover:text-gold">{t(item.nameKey)}</Link>
                   ))}
                 </div>
               )}
 
-              <button type="button" onMouseDown={(e) => e.stopPropagation()} onClick={() => {
+              <button type="button" onClick={() => {
                 if (openDropdown === "m-prod") {
                   setOpenDropdown(null);
                   setMobileOpen(false);
@@ -219,7 +220,7 @@ export default function Navbar() {
                 {t('nav.products')} <ChevronDown size={14} className={`transition-transform ${openDropdown === "m-prod" ? "rotate-180" : ""}`} />
               </button>
               {openDropdown === "m-prod" && (
-                <div onMouseDown={(e) => e.stopPropagation()} className="flex flex-col gap-1 pl-4 pb-2">
+                <div className="flex flex-col gap-1 pl-4 pb-2">
                   {PRODUCT_ITEMS.map((item) => (
                     <Link key={item.hash} to={`/products#${item.hash}`} onClick={() => { setOpenDropdown(null); setMobileOpen(false); }} className="py-2 text-sm text-navy/70 hover:text-gold">{t(item.nameKey)}</Link>
                   ))}
