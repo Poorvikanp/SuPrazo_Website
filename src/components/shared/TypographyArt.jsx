@@ -18,7 +18,7 @@ export default function TypographyArt() {
         transition={{ duration: 0.9, ease: "easeOut" }}
         className="max-w-[1400px] mx-auto px-6 lg:px-16 flex flex-col items-center"
       >
-        <picture>
+        <picture className="flex justify-center">
           <source srcSet={webuildAvif} type="image/avif" />
           <source srcSet={webuildWebp} type="image/webp" />
           <img
