@@ -7,6 +7,7 @@ import { useLang } from "@/lib/LanguageContext";
 import PremiumButton from "@/components/shared/PremiumButton";
 
 const ABOUT_IMG = "/images/optimized/Team_Home-1024.webp";
+const ABOUT_SRC_SET = "/images/optimized/Team_Home-640.webp 640w, /images/optimized/Team_Home-1024.webp 1024w, /images/optimized/Team_Home-1920.webp 1920w";
 
 export default function AboutPreview() {
   const { t } = useLang();
@@ -21,7 +22,7 @@ export default function AboutPreview() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-14 items-center">
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8 }}>
              <div className="overflow-hidden rounded-lg aspect-[4/3]">
-               <img src={ABOUT_IMG} alt="SuPrazo Technologies" className="w-full h-full object-contain rounded-lg" loading="lazy" decoding="async" />
+                <img src={ABOUT_IMG} srcSet={ABOUT_SRC_SET} sizes="(max-width: 1023px) 100vw, 50vw" alt="SuPrazo Technologies" className="w-full h-full object-contain rounded-lg" loading="lazy" decoding="async" />
              </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.2 }}>

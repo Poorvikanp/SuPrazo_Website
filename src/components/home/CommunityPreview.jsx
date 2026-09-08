@@ -8,6 +8,7 @@ import { useLang } from "@/lib/LanguageContext";
 import PremiumButton from "@/components/shared/PremiumButton";
 
 const COMMUNITY_IMG = "/images/optimized/community-hackathon-1080.webp";
+const COMMUNITY_SRC_SET = "/images/optimized/community-hackathon-640.webp 640w, /images/optimized/community-hackathon-1024.webp 1024w, /images/optimized/community-hackathon-1080.webp 1080w";
 
 export default function CommunityPreview() {
   const { t } = useLang();
@@ -28,7 +29,7 @@ export default function CommunityPreview() {
             <PremiumButton to="/community" variant="ghost">{t('communityPreview.explore')}</PremiumButton>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.2 }} className="order-1 md:order-2">
-            <div className="overflow-hidden rounded-lg"><img src={COMMUNITY_IMG} alt="SuPrathon Community" className="w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] object-cover" loading="lazy" decoding="async" /></div>
+             <div className="overflow-hidden rounded-lg"><img src={COMMUNITY_IMG} srcSet={COMMUNITY_SRC_SET} sizes="(max-width: 1023px) 100vw, 50vw" alt="SuPrathon Community" className="w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] object-cover" loading="lazy" decoding="async" /></div>
           </motion.div>
         </div>
       </div>

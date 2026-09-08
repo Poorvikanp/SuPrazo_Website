@@ -130,6 +130,8 @@ export default function DirectorsOffice() {
               <img
                 src={DIRECTOR_PORTRAIT}
                 alt={t('director.name')}
+                width="1920"
+                height="1920"
                 className="w-full h-auto object-contain max-h-[500px]"
                 loading="lazy"
                 decoding="async"

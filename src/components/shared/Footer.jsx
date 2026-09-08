@@ -118,13 +118,19 @@ export default function Footer() {
         {/* Make in India Branding Section */}
         <div className="mt-16 pt-8 border-t border-white/10 text-center">
           <div className="flex flex-col items-center gap-6">
-            <img
-              src="/images/make-in-India-logo.jpg"
-              alt="Make in India"
-              className="w-36 h-auto object-contain mb-4"
-              loading="lazy"
-              decoding="async"
-            />
+            <picture>
+              <source srcSet="/images/optimized/make-in-India-logo-1024.avif" type="image/avif" />
+              <source srcSet="/images/optimized/make-in-India-logo-1024.webp" type="image/webp" />
+              <img
+                src="/images/make-in-India-logo.jpg"
+                alt="Make in India"
+                width="3000"
+                height="1600"
+                className="w-36 h-auto object-contain mb-4"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
 
             <div className="space-y-2">
               <h3 className="text-white/90 text-lg font-light tracking-wide">

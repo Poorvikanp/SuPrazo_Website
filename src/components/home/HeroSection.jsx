@@ -87,16 +87,17 @@ export default function HeroSection() {
         {HERO_SLIDES.map((slide, index) => (
           <picture key={index}>
             {loadedSlidesRef.current.has(index) && <source srcSet={slide.srcWebp} type="image/webp" />}
-            <motion.img
-              src={loadedSlidesRef.current.has(index) ? slide.src : undefined}
-              alt={slide.alt}
-              className={`absolute inset-0 w-full h-full ${slide.fit} hero-slide-img transition-opacity duration-1000 ease-in-out`}
-              initial={{ scale: index === 0 ? 1.08 : 1 }}
-              animate={{ opacity: activeSlide === index ? 1 : 0, scale: activeSlide === index ? 1 : 1.03 }}
-              transition={{ opacity: { duration: 1, ease: "easeInOut" }, scale: { duration: 8, ease: "easeOut" } }}
-              fetchPriority={activeSlide === index ? "high" : "auto"}
-              style={{ filter: "brightness(1.05) contrast(1.05)" }}
-            />
+          <motion.img
+            src={loadedSlidesRef.current.has(index) ? slide.src : undefined}
+            alt={slide.alt}
+            className={`absolute inset-0 w-full h-full ${slide.fit} hero-slide-img transition-opacity duration-1000 ease-in-out`}
+            initial={{ scale: index === 0 ? 1.08 : 1 }}
+            animate={{ opacity: activeSlide === index ? 1 : 0, scale: activeSlide === index ? 1 : 1.03 }}
+            transition={{ opacity: { duration: 1, ease: "easeInOut" }, scale: { duration: 8, ease: "easeOut" } }}
+            fetchPriority={activeSlide === index ? "high" : "auto"}
+            decoding="async"
+            style={{ filter: "brightness(1.05) contrast(1.05)" }}
+          />
           </picture>
         ))}
       </motion.div>

@@ -6,6 +6,7 @@ import { useLang } from "@/lib/LanguageContext";
 import { ArrowRight } from "lucide-react";
 
 const DIRECTOR_IMG = "/images/optimized/director-portrait-1920.webp";
+const DIRECTOR_IMG_SRC_SET = "/images/optimized/director-portrait-640.webp 640w, /images/optimized/director-portrait-1024.webp 1024w, /images/optimized/director-portrait-1920.webp 1920w";
 
 export default function DirectorStrip() {
   const { t } = useLang();
@@ -49,7 +50,7 @@ export default function DirectorStrip() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-12 lg:gap-20 items-center">
            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8 }} className="md:col-span-2">
-              <div className="overflow-hidden rounded-lg"><img src={DIRECTOR_IMG} alt={t('director.name')} className="w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[600px] object-contain" loading="lazy" decoding="async" /></div>
+               <div className="overflow-hidden rounded-lg"><img src={DIRECTOR_IMG} srcSet={DIRECTOR_IMG_SRC_SET} sizes="(max-width: 1023px) 100vw, 50vw" alt={t('director.name')} className="w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[600px] object-contain" loading="lazy" decoding="async" /></div>
            </motion.div>
            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.2 }} className="md:col-span-3 flex flex-col justify-center">
             <span className="text-gold text-xs font-semibold tracking-[0.25em] uppercase">{t('directorStrip.label')}</span>
